@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<!--
+  wbL Trend Scout — 리포트 템플릿 (W-ISLAND 디자인 시스템 적용)
+  ┌─ 에이전트 사용법 ─────────────────────────────────────────────┐
+  │ 1) 이 파일을 그대로 복사한다.                                  │
+  │ 2) <head>와 <style>는 절대 건드리지 않는다 (디자인 시스템).    │
+  │ 3) 아래 @SLOT:이름 ~ /@SLOT 주석 구간 안쪽만                  │
+  │    실제 분석 결과 마크업으로 교체한다.                          │
+  │ 4) 문구는 전부 해요체 6원칙. 색은 의미 토큰만(raw hex 금지).    │
+  │ 5) reports\YYYY-MM-DD_분석.html 로 저장한다.                   │
+  └───────────────────────────────────────────────────────────────┘
+-->
+<html lang="ko" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#1577cc">
+<title>wbL Trend Scout — 트렌드 리포트</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+:root{
+  --blue-50:#ebf5fd;--blue-100:#cce6fa;--blue-200:#9fd0f4;--blue-300:#5cb4ee;
+  --blue-400:#1da4ff;--blue-500:#1577cc;--blue-600:#1166b0;--blue-700:#0e5390;
+  --blue-800:#0b4172;--blue-900:#093356;
+  --status-positive:#3BCC4B;--status-negative:#d6173a;--status-warning:#e8920c;
+}
+[data-theme="light"]{
+  --gray-50:#f9f9fa;--gray-100:#ececf0;--gray-200:#e3e3e8;--gray-300:#d6d7de;
+  --gray-400:#cecfd7;--gray-500:#c2c3cd;--gray-600:#b1b1bb;--gray-700:#8a8a92;
+  --gray-800:#6b6b71;--gray-900:#515256;--gray-1000:#2A2C2F;--g1000-rgb:42,44,47;
+  --surface-1:#ffffff;--surface-2:#f9fafb;--surface-3:#f2f4f6;
+  --txt-link:#1f7a8c;--bg-invert:#2A2C2F;--bg-blue-primary:#cce6fa;
+  --shadow-sm:0 1px 3px rgba(0,0,0,.06);--shadow-md:0 4px 12px rgba(0,0,0,.08);
+  --shadow-lg:0 10px 28px rgba(0,0,0,.10);--shadow-xl:0 20px 48px rgba(0,0,0,.14);
+}
+[data-theme="dark"]{
+  --gray-50:#17171c;--gray-100:#202028;--gray-200:#292932;--gray-300:#3c3c46;
+  --gray-400:#4e4e5a;--gray-500:#6b6b78;--gray-600:#8b95a1;--gray-700:#a9adb8;
+  --gray-800:#c2c5cc;--gray-900:#e3e4e8;--gray-1000:#f3f4f6;--g1000-rgb:243,244,246;
+  --surface-1:#202028;--surface-2:#17171c;--surface-3:#292932;
+  --txt-link:#5ec8d2;--bg-invert:#f3f4f6;--bg-blue-primary:#0b4172;
+  --shadow-sm:0 1px 3px rgba(0,0,0,.4);--shadow-md:0 4px 12px rgba(0,0,0,.45);
+  --shadow-lg:0 10px 28px rgba(0,0,0,.5);--shadow-xl:0 20px 48px rgba(0,0,0,.6);
+}
+:root{
+  --txt-primary:rgba(var(--g1000-rgb),1);--txt-secondary:rgba(var(--g1000-rgb),.80);
+  --txt-tertiary:rgba(var(--g1000-rgb),.60);--txt-caption:rgba(var(--g1000-rgb),.50);
+  --txt-disabled:rgba(var(--g1000-rgb),.30);
+  --txt-blue-primary:var(--blue-500);--txt-blue-secondary:var(--blue-400);
+  --bg-primary:var(--surface-1);--bg-secondary:var(--surface-2);--bg-tertiary:var(--surface-3);
+  --border-primary:var(--gray-1000);
+  --border-secondary:rgba(var(--g1000-rgb),.20);--border-tertiary:rgba(var(--g1000-rgb),.10);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Pretendard Variable',Pretendard,-apple-system,sans-serif;
+  background:var(--bg-secondary);color:var(--txt-primary);line-height:1.6;
+  -webkit-font-smoothing:antialiased;transition:background .18s,color .18s}
+.wrap{max-width:1000px;margin:0 auto;padding:20px 20px 64px}
+
+/* GNB */
+.gnb{display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding:12px 18px;background:var(--bg-primary);border:1px solid var(--border-tertiary);
+  border-radius:12px;box-shadow:var(--shadow-sm);position:sticky;top:14px;z-index:10;margin-bottom:24px}
+.lockup{display:inline-flex;align-items:center;gap:11px}
+.logo-mark{width:36px;height:36px;border-radius:10px;background:var(--blue-500);color:#fff;
+  display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;letter-spacing:-.02em;flex:0 0 auto}
+.logo-title{font-size:18px;font-weight:700;letter-spacing:-.01em}
+.logo-sub{font-size:12.5px;color:var(--txt-tertiary);font-weight:500}
+.theme-btn{width:38px;height:38px;border-radius:10px;border:1px solid var(--border-secondary);
+  background:transparent;color:var(--txt-secondary);cursor:pointer;display:flex;align-items:center;justify-content:center}
+.theme-btn:hover{background:var(--bg-tertiary);color:var(--txt-primary)}
+
+/* Hero — 한 줄 요약 */
+.hero{background:var(--bg-primary);border:1px solid var(--border-tertiary);border-radius:16px;
+  padding:28px 28px;box-shadow:var(--shadow-sm);margin-bottom:14px}
+.hero .eyebrow{font-size:12.5px;font-weight:700;color:var(--txt-blue-primary);letter-spacing:.02em;margin-bottom:10px;
+  display:inline-flex;align-items:center;gap:7px}
+.hero h1{font-size:28px;font-weight:700;line-height:1.3;letter-spacing:-.01em}
+.hero .lead{font-size:16px;color:var(--txt-secondary);margin-top:12px;max-width:62ch}
+.hero .stamp{font-size:12px;color:var(--txt-caption);margin-top:16px}
+
+/* Section */
+.section{margin-top:34px}
+.section-head{display:flex;align-items:baseline;gap:10px;margin-bottom:16px}
+.section-head h2{font-size:22px;font-weight:700;letter-spacing:-.01em}
+.section-head .hint{font-size:13px;color:var(--txt-tertiary)}
+
+/* Badge */
+.badge{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:700;
+  padding:4px 10px;border-radius:999px;white-space:nowrap}
+.badge.blue{background:color-mix(in srgb,var(--blue-500) 16%,var(--bg-primary));color:var(--txt-blue-primary)}
+.badge.pos{background:color-mix(in srgb,var(--status-positive) 18%,var(--bg-primary));color:var(--status-positive)}
+.badge.gray{background:var(--bg-tertiary);color:var(--txt-secondary)}
+.badge.warn{background:color-mix(in srgb,var(--status-warning) 18%,var(--bg-primary));color:#9a6206}
+[data-theme="dark"] .badge.blue{color:var(--blue-200)}
+[data-theme="dark"] .badge.warn{color:#f0b35a}
+
+/* Trend list */
+.trend{display:flex;gap:16px;padding:18px;background:var(--bg-primary);
+  border:1px solid var(--border-tertiary);border-radius:14px;box-shadow:var(--shadow-sm)}
+.trend + .trend{margin-top:10px}
+.trend .rank{width:34px;height:34px;border-radius:50%;flex:0 0 auto;background:var(--blue-500);color:#fff;
+  font-weight:800;font-size:15px;display:flex;align-items:center;justify-content:center}
+.trend .body{flex:1;min-width:0}
+.trend .tline{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:6px}
+.trend .tname{font-size:17px;font-weight:700}
+.trend .why{font-size:14px;color:var(--txt-secondary)}
+.trend .src{font-size:12.5px;color:var(--txt-caption);margin-top:6px}
+
+/* Tag chip */
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:10px}
+.tagchip{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:500;
+  background:var(--bg-tertiary);color:var(--txt-secondary);padding:5px 11px;border-radius:999px}
+.tagchip.brand{background:var(--bg-blue-primary);color:var(--txt-blue-primary)}
+[data-theme="dark"] .tagchip.brand{color:var(--blue-200)}
+
+/* Product grid */
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.prod{display:flex;flex-direction:column;background:var(--bg-primary);
+  border:1px solid var(--border-tertiary);border-radius:16px;overflow:hidden;box-shadow:var(--shadow-sm)}
+.prod .thumb{aspect-ratio:4/3;background:var(--bg-tertiary);display:flex;align-items:center;justify-content:center;
+  color:var(--txt-disabled);font-size:13px;overflow:hidden}
+.prod .thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.prod .pbody{padding:16px 16px 18px;display:flex;flex-direction:column;flex:1}
+.prod .phead{display:flex;align-items:center;gap:8px;justify-content:space-between;margin-bottom:4px}
+.prod .rankno{font-size:12px;font-weight:800;color:var(--txt-blue-primary)}
+.prod .pname{font-size:16px;font-weight:700;line-height:1.4}
+.prod .price{font-size:14px;font-weight:700;color:var(--txt-secondary);margin-top:2px}
+.prod .preason{font-size:13.5px;color:var(--txt-secondary);margin-top:10px;flex:1}
+.prod .pmeta{display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin-top:12px}
+.prod .plink{margin-top:14px}
+
+/* Button */
+.btn{font-family:inherit;font-weight:600;border:1px solid transparent;border-radius:10px;cursor:pointer;
+  display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:0 14px;height:38px;font-size:13.5px;
+  text-decoration:none;color:var(--txt-primary);transition:.15s}
+.btn-outline{background:transparent;border-color:var(--border-secondary);color:var(--txt-secondary)}
+.btn-outline:hover{background:var(--bg-tertiary);color:var(--txt-primary)}
+.btn-cta{width:100%}
+
+/* Action / hashtag block */
+.actions .listrow{display:flex;gap:14px;padding:16px 18px;background:var(--bg-primary);
+  border:1px solid var(--border-tertiary)}
+.actions .listrow:first-child{border-radius:14px 14px 0 0}
+.actions .listrow:last-child{border-radius:0 0 14px 14px}
+.actions .listrow + .listrow{border-top:none}
+.actions .lead{width:38px;height:38px;border-radius:10px;flex:0 0 auto;display:flex;align-items:center;justify-content:center;
+  background:color-mix(in srgb,var(--blue-500) 14%,var(--bg-primary));color:var(--blue-500);font-weight:800;font-size:13px}
+[data-theme="dark"] .actions .lead{color:var(--blue-200)}
+.actions .ab{flex:1;min-width:0}
+.actions .at{font-size:15px;font-weight:700;margin-bottom:3px}
+.actions .as{font-size:13.5px;color:var(--txt-secondary)}
+
+/* Alert (데이터 한계) */
+.alert{display:flex;gap:10px;padding:14px 16px;border-radius:12px;font-size:13.5px;align-items:flex-start;margin-top:16px}
+.alert.info{background:var(--bg-blue-primary);color:var(--txt-blue-primary)}
+[data-theme="dark"] .alert.info{color:var(--blue-200)}
+.alert .ico{flex:0 0 auto;margin-top:1px}
+
+.footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--border-tertiary);
+  font-size:12.5px;color:var(--txt-caption);text-align:center}
+
+@media (max-width:599px){
+  .grid{grid-template-columns:1fr}
+  .hero h1{font-size:23px}
+  .wrap{padding:14px 14px 48px}
+}
+::-webkit-scrollbar{width:14px;height:14px}
+::-webkit-scrollbar-thumb{background-color:rgba(0,0,0,.22);border-radius:999px;border:4px solid transparent;background-clip:padding-box;min-height:44px}
+::-webkit-scrollbar-thumb:hover{background-color:rgba(0,0,0,.38)}
+[data-theme="dark"] ::-webkit-scrollbar-thumb{background-color:rgba(255,255,255,.2)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- GNB (고정 — 수정 금지) -->
+  <div class="gnb">
+    <div class="lockup">
+      <div class="logo-mark">wbL</div>
+      <div>
+        <div class="logo-title">Trend Scout</div>
+        <div class="logo-sub">wbL 주얼리 · 최근 3개월 트렌드 분석</div>
+      </div>
+    </div>
+    <button class="theme-btn" onclick="(function(h){h.dataset.theme=h.dataset.theme==='dark'?'light':'dark'})(document.documentElement)" aria-label="테마 바꾸기">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+    </button>
+  </div>
+
+  <!-- @SLOT:HERO — 한 줄 요약 -->
+  <div class="hero">
+    <span class="eyebrow">▲ 이번 분석 핵심</span>
+    <h1>여름엔 <b>볼드 후프</b>와 <b>진주</b>가 같이 떠요 — 지금은 후프부터 밀어요.</h1>
+    <p class="lead">최근 3개월 신호에서 오버사이즈·조각적 후프와 진주(특히 해양 무드)가 동시에 올라왔어요. wbL 라인에선 볼드 커브 귀걸이와 진주 초커가 바로 받쳐줘요.</p>
+    <p class="stamp">생성일 2026-06-23 · 트렌드 기간 2026-03 ~ 06 · 신호: 웹 트렌드(보정 전)</p>
+  </div>
+  <!-- /@SLOT:HERO -->
+
+  <!-- @SLOT:TRENDS — 최근 3개월 트렌드 TOP -->
+  <div class="section">
+    <div class="section-head"><h2>최근 3개월 트렌드</h2><span class="hint">부상 강도순</span></div>
+
+    <div class="trend">
+      <div class="rank">1</div>
+      <div class="body">
+        <div class="tline"><span class="tname">오버사이즈·볼드 후프</span><span class="badge blue">부상 강도 상</span></div>
+        <p class="why">얇은 클래식 링 대신 두툼하고 조각적인 실루엣이 여름 액세서리 기사에서 반복돼요.</p>
+        <div class="chips"><span class="tagchip">청키</span><span class="tagchip">골드</span><span class="tagchip">조각적 실루엣</span><span class="tagchip">데일리</span></div>
+        <p class="src">근거: 패션 매거진 여름 트렌드 기사 · 액세서리 트렌드 예측글</p>
+      </div>
+    </div>
+
+    <div class="trend">
+      <div class="rank">2</div>
+      <div class="body">
+        <div class="tline"><span class="tname">진주 · 해양 무드</span><span class="badge blue">부상 강도 상</span></div>
+        <p class="why">진주와 조개·물결 같은 바다 모티프가 여름 시즌과 맞물려 같이 올라왔어요.</p>
+        <div class="chips"><span class="tagchip">진주</span><span class="tagchip">조개 모티프</span><span class="tagchip">로맨틱</span><span class="tagchip brand">wbL 26 SUMMER와 결</span></div>
+        <p class="src">근거: 시즌 트렌드 기사 · 해양 테마 디자인 언급</p>
+      </div>
+    </div>
+
+    <div class="trend">
+      <div class="rank">3</div>
+      <div class="body">
+        <div class="tline"><span class="tname">레이어드 · 젠더리스 미니멀</span><span class="badge gray">부상 강도 중</span></div>
+        <p class="why">얇은 체인을 겹쳐 거는 레이어드와 성별 구분 없는 깔끔한 디자인이 꾸준히 이어져요.</p>
+        <div class="chips"><span class="tagchip">레이어드(겹쳐 걸기)</span><span class="tagchip">미니멀</span><span class="tagchip">체인</span></div>
+        <p class="src">근거: 젠더리스 주얼리 트렌드 언급 · 데일리 스타일링</p>
+      </div>
+    </div>
+  </div>
+  <!-- /@SLOT:TRENDS -->
+
+  <!-- @SLOT:PRODUCTS — 추천 제품(랭크순) -->
+  <div class="section">
+    <div class="section-head"><h2>지금 밀 제품</h2><span class="hint">트렌드 적합도순</span></div>
+    <div class="grid">
+
+      <div class="prod">
+        <div class="thumb">제품 이미지</div>
+        <div class="pbody">
+          <div class="phead"><span class="rankno">PICK 1</span><span class="badge pos">적합도 높음</span></div>
+          <div class="pname">Le Grand Bold Curve Earrings</div>
+          <div class="price">69,900원</div>
+          <p class="preason">볼드 후프 트렌드를 정면으로 받는 조각적 커브 실루엣이에요. 여름 데일리룩 콘텐츠로 바로 밀기 좋아요.</p>
+          <div class="pmeta"><span class="badge blue">볼드 후프</span><span class="badge gray">확신도 높음</span></div>
+          <a class="btn btn-outline btn-cta plink" href="https://wblbeauty.com/product/detail.html?product_no=6993" target="_blank" rel="noopener">상품 보기</a>
+        </div>
+      </div>
+
+      <div class="prod">
+        <div class="thumb">제품 이미지</div>
+        <div class="pbody">
+          <div class="phead"><span class="rankno">PICK 2</span><span class="badge pos">적합도 높음</span></div>
+          <div class="pname">Diana Pearl Choker Necklace</div>
+          <div class="price">129,900원</div>
+          <p class="preason">진주·해양 무드 상승과 딱 맞아요. 26 SUMMER 'Sea, Pearl' 키워드와도 톤이 같아 캠페인에 엮기 좋아요.</p>
+          <div class="pmeta"><span class="badge blue">진주</span><span class="badge gray">확신도 중간</span></div>
+          <a class="btn btn-outline btn-cta plink" href="https://wblbeauty.com/product/detail.html?product_no=6674" target="_blank" rel="noopener">상품 보기</a>
+        </div>
+      </div>
+
+      <div class="prod">
+        <div class="thumb">제품 이미지</div>
+        <div class="pbody">
+          <div class="phead"><span class="rankno">PICK 3</span><span class="badge blue">적합도 중간</span></div>
+          <div class="pname">Swarovski Crystal Jewel Patch</div>
+          <div class="price">26,900원</div>
+          <p class="preason">데일리·미니멀 흐름에 가격 진입장벽이 낮아 신규 유입에 좋아요. 대표상품이라 첫 구매 미끼로 강해요.</p>
+          <div class="pmeta"><span class="badge blue">데일리</span><span class="badge gray">확신도 중간</span></div>
+          <a class="btn btn-outline btn-cta plink" href="https://wblbeauty.com/product/detail.html?product_no=7031" target="_blank" rel="noopener">상품 보기</a>
+        </div>
+      </div>
+
+      <div class="prod">
+        <div class="thumb">제품 이미지</div>
+        <div class="pbody">
+          <div class="phead"><span class="rankno">PICK 4</span><span class="badge blue">적합도 중간</span></div>
+          <div class="pname">Bloom Flower Ring Earrings</div>
+          <div class="price">64,900원</div>
+          <p class="preason">로맨틱·여름 무드를 받쳐요. 진주 픽과 세트 비주얼로 묶으면 객단가를 올리기 좋아요.</p>
+          <div class="pmeta"><span class="badge blue">로맨틱</span><span class="badge gray">확신도 낮음</span></div>
+          <a class="btn btn-outline btn-cta plink" href="https://wblbeauty.com/product/detail.html?product_no=7376" target="_blank" rel="noopener">상품 보기</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <!-- /@SLOT:PRODUCTS -->
+
+  <!-- @SLOT:ACTIONS — 실행 제안 + 추천 해시태그 세트 -->
+  <div class="section actions">
+    <div class="section-head"><h2>실행 제안</h2></div>
+    <div>
+      <div class="listrow">
+        <div class="lead">1</div>
+        <div class="ab"><div class="at">볼드 후프부터 피드 전면에</div>
+          <div class="as">Le Grand Bold Curve를 여름 데일리룩 릴스로. 카피 키워드: "여름엔 크게", "데일리 후프".</div></div>
+      </div>
+      <div class="listrow">
+        <div class="lead">2</div>
+        <div class="ab"><div class="at">진주는 26 SUMMER 캠페인과 묶기</div>
+          <div class="as">Diana Pearl Choker를 'A Slip of Light' 무드로. 실사 모델컷 위에 wbL 타이포 합성.</div></div>
+      </div>
+      <div class="listrow">
+        <div class="lead">3</div>
+        <div class="ab"><div class="at">주얼패치는 신규 유입 미끼로</div>
+          <div class="as">저가 진입 상품으로 첫 구매 전환. 후프·진주 픽과 함께 세트 컷 구성.</div></div>
+      </div>
+    </div>
+
+    <div class="section-head" style="margin-top:24px"><h2 style="font-size:18px">추천 해시태그 세트</h2>
+      <span class="hint">트렌드에서 도출 · 인스타 실시간 카운트 아님</span></div>
+    <div class="chips">
+      <span class="tagchip brand">#후프귀걸이</span><span class="tagchip brand">#오버사이즈후프</span><span class="tagchip brand">#골드후프</span>
+      <span class="tagchip brand">#진주귀걸이</span><span class="tagchip brand">#진주목걸이</span><span class="tagchip brand">#여름주얼리</span>
+      <span class="tagchip brand">#레이어드네크리스</span><span class="tagchip brand">#데일리주얼리</span><span class="tagchip brand">#wbL</span>
+    </div>
+  </div>
+  <!-- /@SLOT:ACTIONS -->
+
+  <!-- @SLOT:GAP — 공백/기회 (없으면 이 섹션 통째로 비워도 됨) -->
+  <div class="section">
+    <div class="section-head"><h2>공백 · 기회</h2></div>
+    <div class="trend"><div class="rank" style="background:var(--gray-500)">!</div>
+      <div class="body"><div class="tline"><span class="tname">조개·물결 모티프 단품이 약해요</span></div>
+        <p class="why">해양 무드는 뜨는데 카탈로그에 조개·물결 모티프 단품이 적어요. 26 SUMMER 신상 기획 후보로 좋아요.</p></div></div>
+  </div>
+  <!-- /@SLOT:GAP -->
+
+  <!-- @SLOT:DATANOTE — 데이터 한계 메모 (항상 표기) -->
+  <div class="section">
+    <div class="alert info">
+      <svg class="ico" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+      <div>이 리포트는 <b>템플릿 미리보기용 샘플</b>이에요. 실제 실행 땐 wblbeauty.com 카탈로그를 새로 가져오고, 웹 트렌드 신호로 채워요.
+      해시태그는 트렌드에서 <b>도출</b>한 추천 세트지 인스타 실시간 카운트가 아니에요. 사용자가 직접 본 게시물을 주면 정확도가 올라가요.</div>
+    </div>
+  </div>
+  <!-- /@SLOT:DATANOTE -->
+
+  <div class="footer">wbL Trend Scout · W-ISLAND 디자인 시스템 적용</div>
+
+</div>
+</body>
+</html>
