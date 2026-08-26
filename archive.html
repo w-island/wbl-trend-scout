@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<!-- wbL Trend Archive — 트렌드 변화 한눈에 (3년 누적 그릇) · W-ISLAND 디자인 시스템 -->
+<html lang="ko" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#1577cc">
+<title>wbL Trend Archive — 트렌드 변화 한눈에</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+:root{
+  --blue-50:#ebf5fd;--blue-100:#cce6fa;--blue-200:#9fd0f4;--blue-300:#5cb4ee;
+  --blue-400:#1da4ff;--blue-500:#1577cc;--blue-600:#1166b0;--blue-700:#0e5390;
+  --blue-800:#0b4172;--blue-900:#093356;
+  --status-positive:#3BCC4B;--status-negative:#d6173a;--status-warning:#e8920c;
+}
+[data-theme="light"]{
+  --gray-50:#f9f9fa;--gray-100:#ececf0;--gray-200:#e3e3e8;--gray-300:#d6d7de;
+  --gray-400:#cecfd7;--gray-500:#c2c3cd;--gray-600:#b1b1bb;--gray-700:#8a8a92;
+  --gray-800:#6b6b71;--gray-900:#515256;--gray-1000:#2A2C2F;--g1000-rgb:42,44,47;
+  --surface-1:#ffffff;--surface-2:#f9fafb;--surface-3:#f2f4f6;
+  --txt-link:#1f7a8c;--bg-invert:#2A2C2F;--bg-blue-primary:#cce6fa;
+  --shadow-sm:0 1px 3px rgba(0,0,0,.06);--shadow-md:0 4px 12px rgba(0,0,0,.08);
+  --shadow-lg:0 10px 28px rgba(0,0,0,.10);--shadow-xl:0 20px 48px rgba(0,0,0,.14);
+}
+[data-theme="dark"]{
+  --gray-50:#17171c;--gray-100:#202028;--gray-200:#292932;--gray-300:#3c3c46;
+  --gray-400:#4e4e5a;--gray-500:#6b6b78;--gray-600:#8b95a1;--gray-700:#a9adb8;
+  --gray-800:#c2c5cc;--gray-900:#e3e4e8;--gray-1000:#f3f4f6;--g1000-rgb:243,244,246;
+  --surface-1:#202028;--surface-2:#17171c;--surface-3:#292932;
+  --txt-link:#5ec8d2;--bg-invert:#f3f4f6;--bg-blue-primary:#0b4172;
+  --shadow-sm:0 1px 3px rgba(0,0,0,.4);--shadow-md:0 4px 12px rgba(0,0,0,.45);
+  --shadow-lg:0 10px 28px rgba(0,0,0,.5);--shadow-xl:0 20px 48px rgba(0,0,0,.6);
+}
+:root{
+  --txt-primary:rgba(var(--g1000-rgb),1);--txt-secondary:rgba(var(--g1000-rgb),.80);
+  --txt-tertiary:rgba(var(--g1000-rgb),.60);--txt-caption:rgba(var(--g1000-rgb),.50);
+  --txt-disabled:rgba(var(--g1000-rgb),.30);
+  --txt-blue-primary:var(--blue-500);--txt-blue-secondary:var(--blue-400);
+  --bg-primary:var(--surface-1);--bg-secondary:var(--surface-2);--bg-tertiary:var(--surface-3);
+  --border-primary:var(--gray-1000);
+  --border-secondary:rgba(var(--g1000-rgb),.20);--border-tertiary:rgba(var(--g1000-rgb),.10);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Pretendard Variable',Pretendard,-apple-system,sans-serif;
+  background:var(--bg-secondary);color:var(--txt-primary);line-height:1.6;
+  -webkit-font-smoothing:antialiased;transition:background .18s,color .18s}
+.wrap{max-width:1000px;margin:0 auto;padding:20px 20px 64px}
+
+/* GNB */
+.gnb{display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding:12px 18px;background:var(--bg-primary);border:1px solid var(--border-tertiary);
+  border-radius:12px;box-shadow:var(--shadow-sm);position:sticky;top:14px;z-index:10;margin-bottom:24px}
+.lockup{display:inline-flex;align-items:center;gap:11px}
+.logo-mark{width:36px;height:36px;border-radius:10px;background:var(--blue-500);color:#fff;
+  display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;letter-spacing:-.02em;flex:0 0 auto}
+.logo-title{font-size:18px;font-weight:700;letter-spacing:-.01em}
+.logo-sub{font-size:12.5px;color:var(--txt-tertiary);font-weight:500}
+.theme-btn{width:38px;height:38px;border-radius:10px;border:1px solid var(--border-secondary);
+  background:transparent;color:var(--txt-secondary);cursor:pointer;display:flex;align-items:center;justify-content:center}
+.theme-btn:hover{background:var(--bg-tertiary);color:var(--txt-primary)}
+
+/* Hero */
+.hero{background:var(--bg-primary);border:1px solid var(--border-tertiary);border-radius:16px;
+  padding:28px 28px;box-shadow:var(--shadow-sm);margin-bottom:14px}
+.hero .eyebrow{font-size:12.5px;font-weight:700;color:var(--txt-blue-primary);letter-spacing:.02em;margin-bottom:10px;
+  display:inline-flex;align-items:center;gap:7px}
+.hero h1{font-size:28px;font-weight:700;line-height:1.3;letter-spacing:-.01em}
+.hero .lead{font-size:16px;color:var(--txt-secondary);margin-top:12px;max-width:64ch}
+.hero .stamp{font-size:12px;color:var(--txt-caption);margin-top:16px}
+.hero .herobtns{margin-top:18px;display:flex;flex-wrap:wrap;gap:8px}
+
+/* Section */
+.section{margin-top:34px}
+.section-head{display:flex;align-items:baseline;gap:10px;margin-bottom:16px}
+.section-head h2{font-size:22px;font-weight:700;letter-spacing:-.01em}
+.section-head .hint{font-size:13px;color:var(--txt-tertiary)}
+
+/* Badge */
+.badge{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:700;
+  padding:4px 10px;border-radius:999px;white-space:nowrap}
+.badge.blue{background:color-mix(in srgb,var(--blue-500) 16%,var(--bg-primary));color:var(--txt-blue-primary)}
+.badge.pos{background:color-mix(in srgb,var(--status-positive) 18%,var(--bg-primary));color:var(--status-positive)}
+.badge.gray{background:var(--bg-tertiary);color:var(--txt-secondary)}
+.badge.warn{background:color-mix(in srgb,var(--status-warning) 18%,var(--bg-primary));color:#9a6206}
+[data-theme="dark"] .badge.blue{color:var(--blue-200)}
+[data-theme="dark"] .badge.warn{color:#f0b35a}
+
+/* Stat row */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:14px}
+.stat{background:var(--bg-primary);border:1px solid var(--border-tertiary);border-radius:14px;
+  padding:16px 18px;box-shadow:var(--shadow-sm)}
+.stat .snum{font-size:24px;font-weight:800;letter-spacing:-.02em;line-height:1.15}
+.stat .snum small{font-size:14px;font-weight:700;color:var(--txt-tertiary);margin-left:2px}
+.stat .snum b{color:var(--txt-blue-primary);font-weight:800}
+.stat .slabel{font-size:12.5px;color:var(--txt-tertiary);margin-top:4px}
+
+/* Trend matrix (테마 × 리포트 히트맵) */
+.matrix-wrap{background:var(--bg-primary);border:1px solid var(--border-tertiary);border-radius:16px;
+  box-shadow:var(--shadow-sm);padding:10px;overflow-x:auto}
+table.matrix{border-collapse:separate;border-spacing:6px;width:100%;min-width:560px}
+table.matrix th,table.matrix td{text-align:center;vertical-align:middle}
+table.matrix thead th{padding:6px 4px;font-weight:700;white-space:nowrap}
+table.matrix thead th .cseason{font-size:13px;font-weight:800;color:var(--txt-primary)}
+table.matrix thead th .cdate{display:block;font-size:11.5px;font-weight:600;color:var(--txt-caption);margin-top:3px}
+.matrix .corner{position:sticky;left:0;z-index:3;background:var(--bg-primary);text-align:left;
+  font-size:12px;color:var(--txt-tertiary);font-weight:600;padding-left:8px}
+.matrix th[scope=row]{position:sticky;left:0;z-index:2;background:var(--bg-primary);text-align:left;
+  padding:8px 12px 8px 8px;min-width:150px;box-shadow:1px 0 0 var(--border-tertiary)}
+.matrix th[scope=row] .tname{font-size:14px;font-weight:700;line-height:1.3}
+.matrix th[scope=row] .tnote{font-size:11px;color:var(--txt-tertiary);font-weight:500;margin-top:2px}
+.cell{border-radius:10px;padding:11px 6px;min-width:82px;font-weight:800;font-size:14px;line-height:1.1;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;height:100%}
+.cell .lvtxt{letter-spacing:.02em}
+.cell .delta{font-size:11px;font-weight:800}
+.cell.lv3{background:var(--blue-500);color:#fff}
+.cell.lv2{background:var(--blue-200);color:var(--blue-800)}
+.cell.lv1{background:var(--bg-tertiary);color:var(--txt-tertiary)}
+.cell.lv0{background:transparent;color:var(--txt-disabled);font-weight:600;border:1px dashed var(--border-tertiary)}
+[data-theme="dark"] .cell.lv2{background:var(--blue-700);color:var(--blue-100)}
+.delta.up{color:var(--status-positive)}
+.delta.dn{color:var(--status-negative)}
+.delta.eq{opacity:.45}
+.delta.new{color:var(--txt-blue-primary);font-size:10px}
+[data-theme="dark"] .cell.lv3 .delta.up{color:#7ee68a}
+[data-theme="dark"] .cell.lv3 .delta.dn{color:#ff8ba0}
+
+/* Legend */
+.legend{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-top:14px;
+  font-size:12.5px;color:var(--txt-tertiary)}
+.legend .lg{display:inline-flex;align-items:center;gap:6px}
+.legend .sw{width:22px;height:14px;border-radius:5px;display:inline-block}
+.legend .sw.lv3{background:var(--blue-500)}
+.legend .sw.lv2{background:var(--blue-200)}
+.legend .sw.lv1{background:var(--bg-tertiary)}
+.legend .sw.lv0{background:transparent;border:1px dashed var(--border-secondary)}
+
+/* Archive cards */
+.arclist{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
+.arccard{display:flex;flex-direction:column;background:var(--bg-primary);border:1px solid var(--border-tertiary);
+  border-radius:16px;padding:18px 18px 16px;box-shadow:var(--shadow-sm);text-decoration:none;color:inherit;
+  transition:transform .14s,box-shadow .14s,border-color .14s}
+.arccard:hover{transform:translateY(-3px);box-shadow:var(--shadow-md);border-color:var(--border-secondary)}
+.arccard .arctop{display:flex;align-items:center;gap:8px;justify-content:space-between;margin-bottom:10px}
+.arccard .arcdate{font-size:12px;font-weight:700;color:var(--txt-tertiary)}
+.arccard .archead{font-size:15.5px;font-weight:700;line-height:1.4;flex:1}
+.arccard .arcmeta{font-size:12.5px;color:var(--txt-tertiary);margin-top:12px}
+.arccard .arcgo{font-size:13px;font-weight:700;color:var(--txt-blue-primary);margin-top:12px}
+
+/* Button */
+.btn{font-family:inherit;font-weight:600;border:1px solid transparent;border-radius:10px;cursor:pointer;
+  display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:0 14px;height:38px;font-size:13.5px;
+  text-decoration:none;color:var(--txt-primary);transition:.15s}
+.btn-outline{background:transparent;border-color:var(--border-secondary);color:var(--txt-secondary)}
+.btn-outline:hover{background:var(--bg-tertiary);color:var(--txt-primary)}
+.btn-primary{background:var(--blue-500);color:#fff;border-color:var(--blue-500)}
+.btn-primary:hover{background:var(--blue-600);border-color:var(--blue-600)}
+
+/* Alert */
+.alert{display:flex;gap:10px;padding:14px 16px;border-radius:12px;font-size:13.5px;align-items:flex-start;margin-top:16px}
+.alert.info{background:var(--bg-blue-primary);color:var(--txt-blue-primary)}
+[data-theme="dark"] .alert.info{color:var(--blue-200)}
+.alert .ico{flex:0 0 auto;margin-top:1px}
+
+.footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--border-tertiary);
+  font-size:12.5px;color:var(--txt-caption);text-align:center}
+
+@media (max-width:599px){
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .hero h1{font-size:23px}
+  .wrap{padding:14px 14px 48px}
+}
+::-webkit-scrollbar{width:14px;height:14px}
+::-webkit-scrollbar-thumb{background-color:rgba(0,0,0,.22);border-radius:999px;border:4px solid transparent;background-clip:padding-box;min-height:44px}
+::-webkit-scrollbar-thumb:hover{background-color:rgba(0,0,0,.38)}
+[data-theme="dark"] ::-webkit-scrollbar-thumb{background-color:rgba(255,255,255,.2)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- GNB -->
+  <div class="gnb">
+    <div class="lockup">
+      <div class="logo-mark">wbL</div>
+      <div>
+        <div class="logo-title">Trend Archive</div>
+        <div class="logo-sub">wbL 주얼리 · 트렌드 변화 한눈에</div>
+      </div>
+    </div>
+    <button class="theme-btn" onclick="(function(h){h.dataset.theme=h.dataset.theme==='dark'?'light':'dark'})(document.documentElement)" aria-label="테마 바꾸기">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+    </button>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <span class="eyebrow">▲ 트렌드 아카이브</span>
+    <h1>트렌드가 어떻게 변해왔는지 한눈에 봐요.</h1>
+    <p class="lead">그동안 만든 트렌드 리포트를 한 장에 모았어요. 아래 표에서 테마별 부상 강도가 시점마다 어떻게 오르내렸는지 색으로 보여드려요. 리포트가 쌓일수록 <b>지난해 같은 계절과 비교</b>하기 좋아지는 그릇이에요 — 새 리포트가 나오면 표에 칸이 하나씩 늘어나요.</p>
+    <p class="stamp" id="stamp">누적 리포트 로딩 중…</p>
+    <div class="herobtns">
+      <a class="btn btn-primary" href="index.html">최신 대시보드 보기</a>
+      <a class="btn btn-outline" id="latestReportBtn" href="#" target="_blank" rel="noopener">최신 리포트 열기</a>
+    </div>
+  </div>
+
+  <!-- STAT ROW -->
+  <div class="stats" id="stats"></div>
+
+  <!-- 트렌드 변화 매트릭스 -->
+  <div class="section">
+    <div class="section-head"><h2>트렌드 변화 매트릭스</h2><span class="hint">테마 × 리포트 · 색이 진할수록 부상 강도 상 · 화살표는 지난 리포트 대비</span></div>
+    <div class="matrix-wrap">
+      <table class="matrix" id="matrix"></table>
+    </div>
+    <div class="legend">
+      <span class="lg"><span class="sw lv3"></span> 상 (강함)</span>
+      <span class="lg"><span class="sw lv2"></span> 중</span>
+      <span class="lg"><span class="sw lv1"></span> 하 (약함)</span>
+      <span class="lg"><span class="sw lv0"></span> 해당 없음</span>
+      <span class="lg"><span class="delta up">▲</span> 상승</span>
+      <span class="lg"><span class="delta dn">▼</span> 하락</span>
+      <span class="lg"><span class="delta eq">=</span> 유지</span>
+    </div>
+  </div>
+
+  <!-- 리포트 아카이브 -->
+  <div class="section">
+    <div class="section-head"><h2>리포트 아카이브</h2><span class="hint">최신순 · 클릭하면 원문 열려요</span></div>
+    <div class="arclist" id="archive"></div>
+  </div>
+
+  <!-- 데이터 메모 -->
+  <div class="section">
+    <div class="alert info">
+      <svg class="ico" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+      <div>강도(상 · 중 · 하)는 각 리포트의 <b>'부상 강도'</b>를 옮긴 값이에요. 리포트마다 트렌드 이름이 조금씩 달라서 <b>7개 테마로 표준화</b>해 맞췄어요. 06-24는 06-23 하루 뒤 재검증본이라 같은 초여름이에요. 눈여겨볼 흐름 — <b>진주</b>는 6월엔 담수 · 중간이었다가 6/24엔 컬러 젬 흐름에 잠깐 흡수됐고 8월엔 <b>바로크 · 대형으로 격상</b>됐어요. <b>바다 · 조개</b>는 여름엔 강했다가 가을 진입하며 잦아들었고요. 새 리포트가 나오면 이 페이지의 데이터에 한 줄만 추가하면 표 · 카드가 자동으로 늘어나요.</div>
+    </div>
+  </div>
+
+  <div class="footer">wbL Trend Archive · W-ISLAND 디자인 시스템 적용 · <span id="foot"></span></div>
+
+</div>
+
+<script>
+/* ===================================================================
+   @DATA — 새 리포트가 나오면 REPORTS 배열 맨 아래에 한 줄 추가하세요.
+   levels: 3=상, 2=중, 1=하, 0(또는 생략)=해당 없음
+   테마 id는 아래 THEMES 목록과 맞춰요.
+   =================================================================== */
+const THEMES = [
+  { id:'bracelet', name:'팔찌 · 청키/커프/뱅글', note:'두툼한 커프 · 와이드 뱅글' },
+  { id:'pearl',    name:'진주 · 담수→바로크',    note:'작은 담수 → 큼직한 바로크' },
+  { id:'silver',   name:'실버 · 믹스드 메탈',     note:'은·금 믹스 · 실버 재부상' },
+  { id:'earring',  name:'스테이트먼트 귀걸이',    note:'조형적 · 볼드 · 한 점' },
+  { id:'layered',  name:'레이어드 목걸이',        note:'2~3겹 대비 레이어드' },
+  { id:'marine',   name:'바다 · 조개 모티프',     note:'조개 · 물결 (여름형)' },
+  { id:'gem',      name:'컬러 젬스톤',            note:'무디한 가을 컬러 젬' },
+];
+
+const REPORTS = [
+  { date:'2026-06-23', season:'초여름', period:'2026-03~06', trends:5, picks:6,
+    headline:'볼드 귀걸이 + 바다·진주가 같이 — 후프부터 밀어요',
+    file:'reports/2026-06-23_분석.html',
+    levels:{ earring:3, marine:3, layered:3, silver:3, pearl:2, bracelet:2, gem:0 } },
+  { date:'2026-06-24', season:'초여름', period:'2026-03~06', trends:5, picks:6,
+    headline:'볼드 귀걸이·바다·진주에 청키 팔찌를 신규 격상',
+    file:'reports/2026-06-24_분석.html',
+    levels:{ earring:3, marine:3, layered:3, bracelet:3, silver:2, gem:2, pearl:1 } },
+  { date:'2026-08-24', season:'초가을', period:'2026-05~08', trends:5, picks:6,
+    headline:'초가을은 큼직한 하나 — 바로크 진주·청키 팔찌가 주인공',
+    file:'reports/2026-08-24_분석.html',
+    levels:{ bracelet:3, pearl:3, silver:3, earring:3, layered:2, marine:1, gem:2 } },
+];
+/* ===================================================================
+   @DATA 끝
+   =================================================================== */
+
+const LV = {3:'상', 2:'중', 1:'하', 0:'—'};
+const yy = d => "'" + d.slice(2,4);
+const lvOf = (r,t) => (r.levels && r.levels[t]) ? r.levels[t] : 0;
+
+function deltaFor(j, tid){
+  if(j === 0) return '';
+  const cur = lvOf(REPORTS[j], tid);
+  if(cur === 0) return '';
+  for(let i = j-1; i >= 0; i--){
+    const p = lvOf(REPORTS[i], tid);
+    if(p > 0){
+      if(cur > p) return '<span class="delta up">▲</span>';
+      if(cur < p) return '<span class="delta dn">▼</span>';
+      return '<span class="delta eq">=</span>';
+    }
+  }
+  return '<span class="delta new">NEW</span>';
+}
+
+function renderMatrix(){
+  let head = '<thead><tr><th class="corner">테마 \\ 리포트</th>';
+  REPORTS.forEach(r => {
+    head += `<th><span class="cseason">${yy(r.date)} ${r.season}</span><span class="cdate">${r.date.slice(5)}</span></th>`;
+  });
+  head += '</tr></thead>';
+
+  let body = '<tbody>';
+  THEMES.forEach(th => {
+    body += `<tr><th scope="row"><div class="tname">${th.name}</div><div class="tnote">${th.note}</div></th>`;
+    REPORTS.forEach((r, j) => {
+      const lv = lvOf(r, th.id);
+      body += `<td><div class="cell lv${lv}"><span class="lvtxt">${LV[lv]}</span>${deltaFor(j, th.id)}</div></td>`;
+    });
+    body += '</tr>';
+  });
+  body += '</tbody>';
+  document.getElementById('matrix').innerHTML = head + body;
+}
+
+function renderArchive(){
+  const el = document.getElementById('archive');
+  el.innerHTML = REPORTS.slice().reverse().map(r => `
+    <a class="arccard" href="${r.file}" target="_blank" rel="noopener">
+      <div class="arctop"><span class="badge blue">${yy(r.date)} ${r.season}</span><span class="arcdate">${r.date}</span></div>
+      <div class="archead">${r.headline}</div>
+      <div class="arcmeta">트렌드 ${r.trends} · 추천 ${r.picks} · 기간 ${r.period}</div>
+      <div class="arcgo">리포트 열기 ↗</div>
+    </a>`).join('');
+}
+
+function renderStats(){
+  const first = REPORTS[0].date, last = REPORTS[REPORTS.length-1].date;
+  const stats = [
+    { num:`${REPORTS.length}<small>건</small>`, label:'누적 리포트' },
+    { num:`${THEMES.length}<small>개</small>`, label:'추적 테마' },
+    { num:first.slice(0,7).replace('-','.'), label:'첫 기록' },
+    { num:`<b>${last.slice(0,7).replace('-','.')}</b>`, label:'최근 갱신' },
+  ];
+  document.getElementById('stats').innerHTML = stats.map(s =>
+    `<div class="stat"><div class="snum">${s.num}</div><div class="slabel">${s.label}</div></div>`).join('');
+
+  const latest = REPORTS[REPORTS.length-1];
+  document.getElementById('stamp').textContent =
+    `누적 리포트 ${REPORTS.length}건 · ${first} ~ ${last} · 테마 ${THEMES.length}개 추적 · 새 리포트가 나오면 표에 칸이 하나씩 늘어나요`;
+  document.getElementById('latestReportBtn').href = latest.file;
+  document.getElementById('foot').textContent = last;
+}
+
+renderStats();
+renderMatrix();
+renderArchive();
+</script>
+</body>
+</html>
