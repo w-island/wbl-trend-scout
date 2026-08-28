@@ -46,12 +46,12 @@ html{scroll-behavior:smooth}
 body{font-family:'Pretendard Variable',Pretendard,-apple-system,sans-serif;
   background:var(--bg-secondary);color:var(--txt-primary);line-height:1.6;
   -webkit-font-smoothing:antialiased;transition:background .18s,color .18s}
-.wrap{max-width:1000px;margin:0 auto;padding:20px 20px 64px}
+.wrap{max-width:960px;margin:0 auto;padding:20px 20px 72px}
 
 /* GNB */
 .gnb{display:flex;align-items:center;justify-content:space-between;gap:12px;
   padding:12px 18px;background:var(--bg-primary);border:1px solid var(--border-tertiary);
-  border-radius:12px;box-shadow:var(--shadow-sm);position:sticky;top:14px;z-index:10;margin-bottom:24px}
+  border-radius:14px;box-shadow:var(--shadow-sm);position:sticky;top:14px;z-index:10;margin-bottom:26px}
 .lockup{display:inline-flex;align-items:center;gap:11px}
 .logo-mark{width:36px;height:36px;border-radius:10px;background:var(--blue-500);color:#fff;
   display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;letter-spacing:-.02em;flex:0 0 auto}
@@ -62,66 +62,87 @@ body{font-family:'Pretendard Variable',Pretendard,-apple-system,sans-serif;
 .theme-btn:hover{background:var(--bg-tertiary);color:var(--txt-primary)}
 
 /* Hero */
-.hero{background:var(--bg-primary);border:1px solid var(--border-tertiary);border-radius:16px;
-  padding:28px 28px;box-shadow:var(--shadow-sm);margin-bottom:14px}
-.hero .eyebrow{font-size:12.5px;font-weight:700;color:var(--txt-blue-primary);letter-spacing:.02em;margin-bottom:10px;
+.hero{padding:16px 6px 4px;margin-bottom:8px}
+.hero .eyebrow{font-size:12.5px;font-weight:700;color:var(--txt-blue-primary);letter-spacing:.02em;margin-bottom:12px;
   display:inline-flex;align-items:center;gap:7px}
-.hero h1{font-size:28px;font-weight:700;line-height:1.3;letter-spacing:-.01em}
-.hero .lead{font-size:16px;color:var(--txt-secondary);margin-top:12px;max-width:64ch}
-.hero .stamp{font-size:12px;color:var(--txt-caption);margin-top:16px}
-.hero .herobtns{margin-top:18px;display:flex;flex-wrap:wrap;gap:8px}
+.hero h1{font-size:34px;font-weight:800;line-height:1.25;letter-spacing:-.02em}
+.hero .lead{font-size:16px;color:var(--txt-secondary);margin-top:14px;max-width:62ch}
+.hero .meta{font-size:13.5px;color:var(--txt-tertiary);margin-top:16px}
+.hero .meta b{color:var(--txt-secondary);font-weight:800}
+.hero .herobtns{margin-top:20px;display:flex;flex-wrap:wrap;gap:8px}
 
 /* Section */
-.section{margin-top:34px}
-.section-head{display:flex;align-items:baseline;gap:10px;margin-bottom:16px}
-.section-head h2{font-size:22px;font-weight:700;letter-spacing:-.01em}
+.section{margin-top:48px}
+.section-head{display:flex;align-items:baseline;gap:10px;margin-bottom:18px}
+.section-head h2{font-size:23px;font-weight:800;letter-spacing:-.02em}
 .section-head .hint{font-size:13px;color:var(--txt-tertiary)}
+
+/* Button */
+.btn{font-family:inherit;font-weight:600;border:1px solid transparent;border-radius:11px;cursor:pointer;
+  display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:0 16px;height:42px;font-size:14px;
+  text-decoration:none;color:var(--txt-primary);transition:.15s}
+.btn-outline{background:var(--bg-primary);border-color:var(--border-secondary);color:var(--txt-secondary)}
+.btn-outline:hover{background:var(--bg-tertiary);color:var(--txt-primary)}
+.btn-primary{background:var(--blue-500);color:#fff;border-color:var(--blue-500)}
+.btn-primary:hover{background:var(--blue-600);border-color:var(--blue-600)}
 
 /* Badge */
 .badge{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:700;
   padding:4px 10px;border-radius:999px;white-space:nowrap}
 .badge.blue{background:color-mix(in srgb,var(--blue-500) 16%,var(--bg-primary));color:var(--txt-blue-primary)}
-.badge.pos{background:color-mix(in srgb,var(--status-positive) 18%,var(--bg-primary));color:var(--status-positive)}
 .badge.gray{background:var(--bg-tertiary);color:var(--txt-secondary)}
-.badge.warn{background:color-mix(in srgb,var(--status-warning) 18%,var(--bg-primary));color:#9a6206}
 [data-theme="dark"] .badge.blue{color:var(--blue-200)}
-[data-theme="dark"] .badge.warn{color:#f0b35a}
 
-/* Stat row */
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:14px}
-.stat{background:var(--bg-primary);border:1px solid var(--border-tertiary);border-radius:14px;
-  padding:16px 18px;box-shadow:var(--shadow-sm)}
-.stat .snum{font-size:24px;font-weight:800;letter-spacing:-.02em;line-height:1.15}
-.stat .snum small{font-size:14px;font-weight:700;color:var(--txt-tertiary);margin-left:2px}
-.stat .snum b{color:var(--txt-blue-primary);font-weight:800}
-.stat .slabel{font-size:12.5px;color:var(--txt-tertiary);margin-top:4px}
+/* 이번 달 한눈에 — 스캔 가능한 요약 카드 */
+.sumcard{background:var(--bg-primary);border:1px solid var(--border-tertiary);border-radius:18px;box-shadow:var(--shadow-sm);padding:22px 24px}
+.sumcap{font-size:15px;color:var(--txt-secondary);line-height:1.5;padding-bottom:16px;margin-bottom:6px;border-bottom:1px solid var(--border-tertiary)}
+.sumcap b{color:var(--txt-primary);font-weight:800}
+.sumrow{display:flex;align-items:flex-start;gap:14px;padding:14px 0}
+.sumrow+.sumrow{border-top:1px solid var(--border-tertiary)}
+.sumlabel{flex:0 0 120px;display:flex;align-items:center;gap:8px;font-size:14px;font-weight:700;color:var(--txt-secondary);padding-top:3px}
+.sumlabel .sar{font-size:15px;font-weight:900;line-height:1}
+.sumrow.up .sar{color:var(--status-positive)}
+.sumrow.hot .sar{color:var(--txt-blue-primary)}
+.sumrow.dn .sar{color:var(--status-negative)}
+.sumpills{display:flex;flex-wrap:wrap;gap:8px;flex:1}
+.sumpills .pill{font-size:14px;font-weight:700;padding:8px 15px;border-radius:999px;background:var(--bg-tertiary);color:var(--txt-secondary)}
+.sumrow.up .pill{background:color-mix(in srgb,var(--status-positive) 15%,var(--bg-primary));color:#1b8f2b}
+.sumrow.hot .pill{background:var(--bg-blue-primary);color:var(--txt-blue-primary)}
+.sumrow.dn .pill{background:color-mix(in srgb,var(--status-negative) 13%,var(--bg-primary));color:#c0182f}
+[data-theme="dark"] .sumrow.up .pill{color:#7ee68a}
+[data-theme="dark"] .sumrow.hot .pill{color:var(--blue-200)}
+[data-theme="dark"] .sumrow.dn .pill{color:#ff8ba0}
 
-/* 지금 한눈에 */
-.nowpanel{background:var(--bg-primary);border:1px solid var(--border-tertiary);border-radius:16px;
-  box-shadow:var(--shadow-sm);padding:20px 22px}
-.nowpanel .npcap{font-size:14px;color:var(--txt-secondary);line-height:1.5;padding-bottom:14px;margin-bottom:16px;
-  border-bottom:1px solid var(--border-tertiary)}
-.nowpanel .npcap b{color:var(--txt-primary);font-weight:700}
-.nowgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-.nowcol{background:var(--bg-secondary);border:1px solid var(--border-tertiary);border-radius:12px;padding:15px 16px}
-.nowcol .nlabel{font-size:13px;font-weight:700;color:var(--txt-secondary);display:flex;align-items:center;gap:7px;margin-bottom:12px}
-.nowcol .nlabel .ar{font-size:14px;font-weight:900;line-height:1}
-.nowcol.up .nlabel .ar{color:var(--status-positive)}
-.nowcol.dn .nlabel .ar{color:var(--status-negative)}
-.nowcol.hot .nlabel .ar{color:var(--txt-blue-primary)}
-.chips{display:flex;flex-wrap:wrap;gap:7px}
-.chip{display:inline-flex;align-items:center;font-size:13px;font-weight:700;padding:6px 12px;border-radius:999px;
-  background:var(--bg-tertiary);color:var(--txt-secondary)}
-.nowcol.up .chip{background:color-mix(in srgb,var(--status-positive) 15%,var(--bg-primary));color:#1b8f2b}
-.nowcol.dn .chip{background:color-mix(in srgb,var(--status-negative) 13%,var(--bg-primary));color:#c0182f}
-.nowcol.hot .chip{background:var(--bg-blue-primary);color:var(--txt-blue-primary)}
-.nowcol .nempty{font-size:13px;color:var(--txt-caption)}
-[data-theme="dark"] .nowcol.up .chip{color:#7ee68a}
-[data-theme="dark"] .nowcol.dn .chip{color:#ff8ba0}
-[data-theme="dark"] .nowcol.hot .chip{color:var(--blue-200)}
+/* 월별 추천 제품 */
+.pmonths{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:6px}
+.pmpill{font-family:inherit;font-size:14px;font-weight:700;color:var(--txt-secondary);
+  background:var(--bg-primary);border:1px solid var(--border-tertiary);border-radius:999px;padding:9px 18px;cursor:pointer;transition:.14s}
+.pmpill:hover{border-color:var(--blue-300);color:var(--txt-primary)}
+.pmpill.on{background:var(--blue-500);border-color:var(--blue-500);color:#fff}
+.pcap{font-size:14px;color:var(--txt-secondary);margin:12px 2px 18px}
+.pcap b{color:var(--txt-primary);font-weight:800;font-size:16px}
+.pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:16px}
+.pcard{background:var(--bg-primary);border:1px solid var(--border-tertiary);border-radius:18px;overflow:hidden;
+  box-shadow:var(--shadow-sm);display:flex;flex-direction:column;transition:transform .14s,box-shadow .14s}
+.pcard:hover{transform:translateY(-3px);box-shadow:var(--shadow-md)}
+.pthumb{position:relative;aspect-ratio:1/1;background:var(--bg-tertiary);overflow:hidden}
+.pthumb img{width:100%;height:100%;object-fit:cover;display:block}
+.prank{position:absolute;top:10px;left:10px;font-size:11px;font-weight:800;color:#fff;background:rgba(0,0,0,.55);border-radius:999px;padding:3px 9px;backdrop-filter:blur(2px)}
+.pbody{padding:14px 15px 15px;display:flex;flex-direction:column;gap:9px;flex:1}
+.pname{font-size:14.5px;font-weight:700;line-height:1.4}
+.prow{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.pprice{font-size:19px;font-weight:800;letter-spacing:-.02em}
+.pprice small{font-size:13px;font-weight:700;color:var(--txt-tertiary);margin-left:1px}
+.pcont{font-size:11px;font-weight:800;color:var(--txt-blue-primary);background:var(--bg-blue-primary);border-radius:999px;padding:3px 9px;white-space:nowrap}
+[data-theme="dark"] .pcont{color:var(--blue-200)}
+.ptag{align-self:flex-start;font-size:11.5px;font-weight:700;color:var(--txt-secondary);background:var(--bg-tertiary);border-radius:7px;padding:4px 10px}
+.plink{margin-top:auto;font-size:13px;font-weight:700;color:var(--txt-blue-primary);text-decoration:none;padding-top:4px;align-self:flex-start}
+.plink:hover{text-decoration:underline}
+.pempty{font-size:14px;color:var(--txt-caption);padding:34px;text-align:center;background:var(--bg-primary);border:1px dashed var(--border-secondary);border-radius:16px}
+.pnote{font-size:12px;color:var(--txt-caption);margin-top:16px;line-height:1.5}
 
 /* 테마별 흐름 — 통합 라인 차트 */
-.cxwrap{background:var(--bg-primary);border:1px solid var(--border-tertiary);border-radius:16px;box-shadow:var(--shadow-sm);padding:18px 18px 14px}
+.cxwrap{background:var(--bg-primary);border:1px solid var(--border-tertiary);border-radius:18px;box-shadow:var(--shadow-sm);padding:20px 20px 16px}
 .cxchart{width:100%;height:auto;display:block;overflow:visible}
 .cx-grid{stroke:var(--border-tertiary);stroke-width:1}
 .cx-base{stroke:var(--border-secondary);stroke-width:1}
@@ -134,7 +155,7 @@ body{font-family:'Pretendard Variable',Pretendard,-apple-system,sans-serif;
 .cx-lines.focus .cx-series{opacity:.12}
 .cx-lines.focus .cx-series.hi{opacity:1}
 .cx-series.hi polyline{stroke-width:3.8;opacity:1}
-.cxlegend{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px;padding-top:14px;border-top:1px solid var(--border-tertiary)}
+.cxlegend{display:flex;flex-wrap:wrap;gap:7px;margin-top:16px;padding-top:16px;border-top:1px solid var(--border-tertiary)}
 .cxleg{display:inline-flex;align-items:center;gap:6px;font-family:inherit;font-size:12.5px;font-weight:700;color:var(--txt-secondary);
   background:var(--bg-secondary);border:1px solid var(--border-tertiary);border-radius:999px;padding:5px 11px;cursor:pointer;transition:.14s}
 .cxleg:hover{border-color:var(--c);color:var(--txt-primary)}
@@ -146,12 +167,12 @@ body{font-family:'Pretendard Variable',Pretendard,-apple-system,sans-serif;
 .cxflag.down,.cxflag.gone{color:var(--status-negative)}
 .cxflag.hot{color:var(--txt-blue-primary)}
 .cxflag.flat{color:var(--txt-disabled)}
-.cxhint{font-size:12px;color:var(--txt-caption);margin-top:10px;text-align:center}
+.cxhint{font-size:12px;color:var(--txt-caption);margin-top:12px;text-align:center}
 
 /* 요즘 뜨는 트렌드 (외부 신호) */
-.trwrap{background:var(--bg-primary);border:1px solid var(--border-tertiary);border-radius:16px;box-shadow:var(--shadow-sm);padding:18px 20px}
-.trgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(232px,1fr));gap:12px}
-.tritem{display:flex;flex-direction:column;gap:6px;padding:14px 15px;background:var(--bg-secondary);border:1px solid var(--border-tertiary);border-radius:12px}
+.trwrap{background:var(--bg-primary);border:1px solid var(--border-tertiary);border-radius:18px;box-shadow:var(--shadow-sm);padding:20px 22px}
+.trgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px}
+.tritem{display:flex;flex-direction:column;gap:6px;padding:15px 16px;background:var(--bg-secondary);border:1px solid var(--border-tertiary);border-radius:14px}
 .tritem .trtag{font-size:14px;font-weight:700;display:flex;align-items:center;gap:8px;line-height:1.3}
 .tritem .trtag .src{font-size:10.5px;font-weight:800;border-radius:6px;padding:2px 7px;flex:0 0 auto;letter-spacing:.02em}
 .src.careet{background:color-mix(in srgb,#8a5cf6 16%,var(--bg-primary));color:#7a4de0}
@@ -162,12 +183,30 @@ body{font-family:'Pretendard Variable',Pretendard,-apple-system,sans-serif;
 .tritem .trdesc .trmatch{color:var(--txt-blue-primary);font-weight:700;white-space:nowrap}
 .tritem .trsrc{font-size:11.5px;color:var(--txt-blue-primary);text-decoration:none;font-weight:600;margin-top:auto;padding-top:2px;align-self:flex-start}
 .tritem .trsrc:hover{text-decoration:underline}
-.trstamp{font-size:11.5px;color:var(--txt-caption);margin-top:14px;line-height:1.5}
+.trstamp{font-size:11.5px;color:var(--txt-caption);margin-top:16px;line-height:1.5}
+
+/* 리포트 기록 (리스트) */
+.rlist{display:flex;flex-direction:column;background:var(--bg-primary);border:1px solid var(--border-tertiary);border-radius:16px;box-shadow:var(--shadow-sm);overflow:hidden}
+.ritem{display:flex;align-items:center;gap:14px;padding:16px 20px;text-decoration:none;color:inherit;transition:background .14s}
+.ritem+.ritem{border-top:1px solid var(--border-tertiary)}
+.ritem:hover{background:var(--bg-secondary)}
+.rbadge{flex:0 0 auto;font-size:12px;font-weight:800;color:var(--txt-blue-primary);background:color-mix(in srgb,var(--blue-500) 14%,var(--bg-primary));border-radius:999px;padding:6px 12px}
+[data-theme="dark"] .rbadge{color:var(--blue-200)}
+.rhead{flex:1;font-size:15px;font-weight:700;line-height:1.4}
+.rmeta{flex:0 0 auto;font-size:12.5px;color:var(--txt-tertiary);white-space:nowrap}
+.rgo{flex:0 0 auto;color:var(--txt-tertiary);font-weight:800;font-size:15px}
+.ritem:hover .rgo{color:var(--txt-blue-primary)}
+@media (max-width:560px){
+  .ritem{flex-wrap:wrap}
+  .rhead{flex:1 1 100%;order:3}
+  .rmeta{order:2}
+  .rgo{order:4;margin-left:auto}
+}
 
 /* 표로 자세히 보기 (접기) */
 .more{background:var(--bg-primary);border:1px solid var(--border-tertiary);border-radius:14px;
   box-shadow:var(--shadow-sm);overflow:hidden}
-.more>summary{list-style:none;cursor:pointer;padding:15px 18px;font-size:14.5px;font-weight:700;
+.more>summary{list-style:none;cursor:pointer;padding:16px 20px;font-size:14.5px;font-weight:700;
   display:flex;align-items:center;justify-content:space-between;gap:10px;color:var(--txt-secondary)}
 .more>summary::-webkit-details-marker{display:none}
 .more>summary:hover{color:var(--txt-primary)}
@@ -177,16 +216,16 @@ body{font-family:'Pretendard Variable',Pretendard,-apple-system,sans-serif;
 .more .more-body .hint{display:block;font-size:12.5px;color:var(--txt-tertiary);margin-bottom:12px}
 
 /* Trend matrix (테마 × 리포트 히트맵) */
-.matrix-wrap{background:var(--bg-primary);border:1px solid var(--border-tertiary);border-radius:16px;
-  box-shadow:var(--shadow-sm);padding:10px;overflow-x:auto}
+.matrix-wrap{background:var(--bg-secondary);border:1px solid var(--border-tertiary);border-radius:14px;
+  padding:10px;overflow-x:auto}
 table.matrix{border-collapse:separate;border-spacing:6px;width:100%;min-width:560px}
 table.matrix th,table.matrix td{text-align:center;vertical-align:middle}
 table.matrix thead th{padding:6px 4px;font-weight:700;white-space:nowrap}
 table.matrix thead th .cseason{font-size:13px;font-weight:800;color:var(--txt-primary)}
 table.matrix thead th .cdate{display:block;font-size:11.5px;font-weight:600;color:var(--txt-caption);margin-top:3px}
-.matrix .corner{position:sticky;left:0;z-index:3;background:var(--bg-primary);text-align:left;
+.matrix .corner{position:sticky;left:0;z-index:3;background:var(--bg-secondary);text-align:left;
   font-size:12px;color:var(--txt-tertiary);font-weight:600;padding-left:8px}
-.matrix th[scope=row]{position:sticky;left:0;z-index:2;background:var(--bg-primary);text-align:left;
+.matrix th[scope=row]{position:sticky;left:0;z-index:2;background:var(--bg-secondary);text-align:left;
   padding:8px 12px 8px 8px;min-width:150px;box-shadow:1px 0 0 var(--border-tertiary)}
 .matrix th[scope=row] .tname{font-size:14px;font-weight:700;line-height:1.3}
 .matrix th[scope=row] .tnote{font-size:11px;color:var(--txt-tertiary);font-weight:500;margin-top:2px}
@@ -205,8 +244,6 @@ table.matrix thead th .cdate{display:block;font-size:11.5px;font-weight:600;colo
 .delta.new{color:var(--txt-blue-primary);font-size:10px}
 [data-theme="dark"] .cell.lv3 .delta.up{color:#7ee68a}
 [data-theme="dark"] .cell.lv3 .delta.dn{color:#ff8ba0}
-
-/* Legend */
 .legend{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-top:14px;
   font-size:12.5px;color:var(--txt-tertiary)}
 .legend .lg{display:inline-flex;align-items:center;gap:6px}
@@ -216,40 +253,19 @@ table.matrix thead th .cdate{display:block;font-size:11.5px;font-weight:600;colo
 .legend .sw.lv1{background:var(--bg-tertiary)}
 .legend .sw.lv0{background:transparent;border:1px dashed var(--border-secondary)}
 
-/* Archive cards */
-.arclist{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
-.arccard{display:flex;flex-direction:column;background:var(--bg-primary);border:1px solid var(--border-tertiary);
-  border-radius:16px;padding:18px 18px 16px;box-shadow:var(--shadow-sm);text-decoration:none;color:inherit;
-  transition:transform .14s,box-shadow .14s,border-color .14s}
-.arccard:hover{transform:translateY(-3px);box-shadow:var(--shadow-md);border-color:var(--border-secondary)}
-.arccard .arctop{display:flex;align-items:center;gap:8px;justify-content:space-between;margin-bottom:10px}
-.arccard .arcdate{font-size:12px;font-weight:700;color:var(--txt-tertiary)}
-.arccard .archead{font-size:15.5px;font-weight:700;line-height:1.4;flex:1}
-.arccard .arcmeta{font-size:12.5px;color:var(--txt-tertiary);margin-top:12px}
-.arccard .arcgo{font-size:13px;font-weight:700;color:var(--txt-blue-primary);margin-top:12px}
-
-/* Button */
-.btn{font-family:inherit;font-weight:600;border:1px solid transparent;border-radius:10px;cursor:pointer;
-  display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:0 14px;height:38px;font-size:13.5px;
-  text-decoration:none;color:var(--txt-primary);transition:.15s}
-.btn-outline{background:transparent;border-color:var(--border-secondary);color:var(--txt-secondary)}
-.btn-outline:hover{background:var(--bg-tertiary);color:var(--txt-primary)}
-.btn-primary{background:var(--blue-500);color:#fff;border-color:var(--blue-500)}
-.btn-primary:hover{background:var(--blue-600);border-color:var(--blue-600)}
-
 /* Alert */
 .alert{display:flex;gap:10px;padding:14px 16px;border-radius:12px;font-size:13.5px;align-items:flex-start;margin-top:16px}
 .alert.info{background:var(--bg-blue-primary);color:var(--txt-blue-primary)}
 [data-theme="dark"] .alert.info{color:var(--blue-200)}
 .alert .ico{flex:0 0 auto;margin-top:1px}
 
-.footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--border-tertiary);
+.footer{margin-top:48px;padding-top:20px;border-top:1px solid var(--border-tertiary);
   font-size:12.5px;color:var(--txt-caption);text-align:center}
 
 @media (max-width:599px){
-  .stats{grid-template-columns:repeat(2,1fr)}
-  .hero h1{font-size:23px}
-  .wrap{padding:14px 14px 48px}
+  .hero h1{font-size:26px}
+  .wrap{padding:14px 14px 56px}
+  .sumlabel{flex-basis:100%}
 }
 ::-webkit-scrollbar{width:14px;height:14px}
 ::-webkit-scrollbar-thumb{background-color:rgba(0,0,0,.22);border-radius:999px;border:4px solid transparent;background-clip:padding-box;min-height:44px}
@@ -277,58 +293,64 @@ table.matrix thead th .cdate{display:block;font-size:11.5px;font-weight:600;colo
   <!-- HERO -->
   <div class="hero">
     <span class="eyebrow">▲ 트렌드 아카이브</span>
-    <h1>트렌드가 어떻게 변해왔는지 한눈에 봐요.</h1>
-    <p class="lead">그동안의 트렌드 리포트를 한 곳에 모았어요. 맨 위 <b>‘지금 한눈에’</b>만 봐도 이번 달에 뭐가 뜨고 식었는지 바로 알 수 있고, <b>‘요즘 뜨는 트렌드’</b>로 시장 신호를, <b>‘테마별 흐름’</b> 그래프로 7개 테마의 변화를 한 번에 볼 수 있어요. 리포트가 쌓일수록 지난해 같은 계절과 비교하기 좋아져요.</p>
-    <p class="stamp" id="stamp">누적 리포트 로딩 중…</p>
+    <h1>트렌드가 어떻게<br>변해왔는지, 한눈에.</h1>
+    <p class="lead">매달 뜨고 지는 테마와, 그때 밀었던 추천 제품을 한 곳에 모았어요. 지난달과 뭐가 달라졌는지 바로 보여요.</p>
+    <p class="meta" id="meta">불러오는 중…</p>
     <div class="herobtns">
-      <a class="btn btn-primary" href="index.html">최신 대시보드 보기</a>
-      <a class="btn btn-outline" id="latestReportBtn" href="#" target="_blank" rel="noopener">최신 리포트 열기</a>
+      <a class="btn btn-primary" id="latestReportBtn" href="#" target="_blank" rel="noopener">최신 리포트 열기</a>
+      <a class="btn btn-outline" href="index.html">대시보드 보기</a>
     </div>
   </div>
 
-  <!-- STAT ROW -->
-  <div class="stats" id="stats"></div>
-
-  <!-- 지금 한눈에 -->
+  <!-- ① 이번 달 한눈에 -->
   <div class="section">
-    <div class="section-head"><h2>지금 한눈에</h2><span class="hint">가장 최근 리포트 기준으로 달라진 것만 추렸어요</span></div>
-    <div class="nowpanel">
-      <div class="npcap" id="nowcap">불러오는 중…</div>
-      <div class="nowgrid" id="nowgrid"></div>
+    <div class="section-head"><h2>이번 달 한눈에</h2><span class="hint">가장 최근 리포트 기준</span></div>
+    <div class="sumcard">
+      <div class="sumcap" id="sumcap">불러오는 중…</div>
+      <div id="sumrows"></div>
     </div>
   </div>
 
-  <!-- 요즘 뜨는 트렌드 (외부 신호) -->
+  <!-- ② 월별 추천 제품 -->
   <div class="section">
-    <div class="section-head"><h2>요즘 뜨는 트렌드</h2><span class="hint">우리 리포트 밖 · 지금 시장에서 도는 신호</span></div>
+    <div class="section-head"><h2>월별 추천 제품</h2><span class="hint">그 달 리포트가 밀었던 제품 · 월을 눌러 비교</span></div>
+    <div class="pmonths" id="pmonths"></div>
+    <div class="pcap" id="pcap"></div>
+    <div class="pgrid" id="pgrid"></div>
+    <div class="pnote" id="pnote"></div>
+  </div>
+
+  <!-- ③ 테마별 흐름 (통합 라인 차트) -->
+  <div class="section">
+    <div class="section-head"><h2>테마별 흐름</h2><span class="hint">7개 테마의 부상 강도 · 범례로 골라 보기</span></div>
+    <div class="cxwrap">
+      <div id="trendchart"></div>
+    </div>
+  </div>
+
+  <!-- ④ 요즘 뜨는 트렌드 (외부 신호) -->
+  <div class="section">
+    <div class="section-head"><h2>요즘 뜨는 트렌드</h2><span class="hint">우리 리포트 밖 · 지금 시장 신호</span></div>
     <div class="trwrap">
       <div class="trgrid" id="trending"></div>
       <div class="trstamp" id="trendstamp"></div>
     </div>
   </div>
 
-  <!-- 테마별 흐름 (통합 라인 차트) -->
+  <!-- ⑤ 리포트 기록 -->
   <div class="section">
-    <div class="section-head"><h2>테마별 흐름</h2><span class="hint">7개 테마의 부상 강도를 한 그래프에 · 범례로 골라 보기</span></div>
-    <div class="cxwrap">
-      <div id="trendchart"></div>
-    </div>
+    <div class="section-head"><h2>리포트 기록</h2><span class="hint">최신순 · 클릭하면 원문</span></div>
+    <div class="rlist" id="archive"></div>
   </div>
 
-  <!-- 리포트 아카이브 -->
-  <div class="section">
-    <div class="section-head"><h2>리포트 아카이브</h2><span class="hint">최신순 · 클릭하면 원문 열려요</span></div>
-    <div class="arclist" id="archive"></div>
-  </div>
-
-  <!-- 표로 자세히 보기 (원본 히트맵) -->
+  <!-- ⑥ 표로 자세히 보기 (원본 히트맵) -->
   <div class="section">
     <details class="more">
       <summary>표로 자세히 보기 — 테마 × 리포트 히트맵
         <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
       </summary>
       <div class="more-body">
-        <span class="hint">색이 진할수록 부상 강도 ‘상’ · 화살표는 지난 리포트 대비 · 가로로 넘기면 예전 리포트까지 보여요</span>
+        <span class="hint">색이 진할수록 부상 강도 ‘상’ · 화살표는 지난 리포트 대비 · 가로로 넘기면 예전 리포트까지</span>
         <div class="matrix-wrap">
           <table class="matrix" id="matrix"></table>
         </div>
@@ -343,7 +365,7 @@ table.matrix thead th .cdate{display:block;font-size:11.5px;font-weight:600;colo
         </div>
         <div class="alert info" style="margin-top:16px">
           <svg class="ico" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
-          <div>강도(상 · 중 · 하)는 각 리포트의 <b>‘부상 강도’</b>를 <b>7개 테마로 표준화</b>한 값이에요. 새 리포트가 나오면 데이터에 한 줄만 추가되고 위쪽 그래프 · 표가 자동으로 늘어나요. (06-24는 06-23 재검증본이라 같은 초여름이에요.)</div>
+          <div>강도(상 · 중 · 하)는 각 리포트의 <b>‘부상 강도’</b>를 <b>7개 테마로 표준화</b>한 값이에요. 새 리포트가 나오면 데이터에 한 줄만 추가되고 그래프 · 표가 자동으로 늘어나요. (06-24는 06-23 재검증본이라 같은 초여름이에요.)</div>
         </div>
       </div>
     </details>
@@ -357,6 +379,7 @@ table.matrix thead th .cdate{display:block;font-size:11.5px;font-weight:600;colo
 /* ===================================================================
    @DATA — 새 리포트가 나오면 REPORTS 배열 맨 아래에 한 줄 추가하세요.
    levels: 3=상, 2=중, 1=하, 0(또는 생략)=해당 없음
+   products: 그 달 추천 제품(선택) — {no, name, price, tag, img}. 있으면 '월별 추천 제품'에 자동 반영.
    테마 id는 아래 THEMES 목록과 맞춰요.
    =================================================================== */
 const THEMES = [
@@ -369,6 +392,7 @@ const THEMES = [
   { id:'gem',      name:'컬러 젬스톤',            short:'컬러 젬',     note:'무디한 가을 컬러 젬' },
 ];
 
+const IMG = 'https://wblbeauty.com/web/product/big/';
 const REPORTS = [
   { date:'2026-06-23', season:'초여름', period:'2026-03~06', trends:5, picks:6,
     headline:'볼드 귀걸이 + 바다·진주가 같이 — 후프부터 밀어요',
@@ -377,7 +401,15 @@ const REPORTS = [
   { date:'2026-06-24', season:'초여름', period:'2026-03~06', trends:5, picks:6,
     headline:'볼드 귀걸이·바다·진주에 청키 팔찌를 신규 격상',
     file:'reports/2026-06-24_분석.html',
-    levels:{ earring:3, marine:3, layered:3, bracelet:3, silver:2, gem:2, pearl:1 } },
+    levels:{ earring:3, marine:3, layered:3, bracelet:3, silver:2, gem:2, pearl:1 },
+    products:[
+      { no:6993, name:'14k 르그랑 볼드 커브 귀걸이',        price:'69,900',  tag:'스테이트먼트 귀걸이', img:IMG+'202604/888dc24cea0138ccf738b06dd6e76277.jpg' },
+      { no:7548, name:'925실버 크로스 스트림 링 귀걸이',    price:'60,900',  tag:'물결·볼드·실버',      img:IMG+'202605/385905394e77d225e8b3aa422421f709.jpg' },
+      { no:7557, name:'925실버 오브 커브 링 귀걸이',        price:'119,000', tag:'볼드·실버',           img:IMG+'202605/84fe2bd59d620f2f32678238253a321c.jpg' },
+      { no:7554, name:'라이트 쉘 롱 목걸이',                price:'39,900',  tag:'바다·조개',           img:IMG+'202605/d3a310a745cd8f9966c4d00d4c726f76.jpg' },
+      { no:7162, name:'925실버 나크르 담수진주 초커',       price:'61,900',  tag:'담수진주',            img:IMG+'202507/54ce22ca99c6f47929104fed5d742cdd.jpg' },
+      { no:7662, name:'클러스터 진주 주얼패치',             price:'21,900',  tag:'진주·주얼패치',       img:IMG+'202606/1fbac283f3c31cd971fdceee6a9c9693.jpg' },
+    ] },
   { date:'2026-08-24', season:'초가을', period:'2026-05~08', trends:5, picks:6,
     headline:'초가을은 큼직한 하나 — 바로크 진주·청키 팔찌가 주인공',
     file:'reports/2026-08-24_분석.html',
@@ -385,15 +417,23 @@ const REPORTS = [
   { date:'2026-08-28', season:'초가을', period:'2026-06~08', trends:5, picks:6,
     headline:'참 팔찌 돌아오고 자연석 젬 뜨며 — 가을 새 흐름 3가지',
     file:'reports/2026-08-28_분석.html',
-    levels:{ bracelet:3, pearl:3, silver:3, earring:3, layered:3, marine:0, gem:3 } },
+    levels:{ bracelet:3, pearl:3, silver:3, earring:3, layered:3, marine:0, gem:3 },
+    products:[
+      { no:7686, name:'925실버 마중 채움 오행팔찌',         price:'98,900',  tag:'참 팔찌·자연석',      img:IMG+'202607/eed5ed05b86a17b924294e04758483aa.jpg' },
+      { no:7689, name:'925실버 오르빗 볼체인 듀얼 팔찌',    price:'53,900',  tag:'스택 뱅글·실버',      img:IMG+'202607/f5a77f0ecfeee927ffdf188560be4f1c.jpg' },
+      { no:7250, name:'925실버 임페리얼 사파이어 진주 목걸이', price:'87,900', tag:'바로크 진주·레이어드', img:IMG+'202508/a0ce2384a5aba5b5a3727e9cdbebda8c.jpg' },
+      { no:7249, name:'925실버 임페리얼 사파이어 진주 귀걸이', price:'89,900', tag:'스테이트먼트·진주',   img:IMG+'202508/c0ce7e854a0ce6769463aa03bbfb3faa.jpg' },
+      { no:6993, name:'14k 르그랑 볼드 커브 귀걸이',        price:'69,900',  tag:'스테이트먼트·골드',   img:IMG+'202604/3c8b0e109660415c853009ca0157faef.webp' },
+      { no:7690, name:'925실버 스텔라 심플 드롭 귀걸이',    price:'51,900',  tag:'롱 드롭·실버',        img:IMG+'202607/5cb8a6c6b085f38a679fbfca67d6f8bb.jpg' },
+    ] },
 ];
 /* ===================================================================
    @DATA 끝
    =================================================================== */
 
 const LV = {3:'상', 2:'중', 1:'하', 0:'—'};
-const LVWORD = {3:'강세', 2:'보통', 1:'약함', 0:'없음'};
 const yy = d => "'" + d.slice(2,4);
+const ym = d => d.slice(0,7).replace('-','.');
 const lvOf = (r,t) => (r.levels && r.levels[t]) ? r.levels[t] : 0;
 
 /* 최신 리포트 기준으로 각 테마의 상태를 분류 (직전 '등장했던' 회차와 비교) */
@@ -406,10 +446,11 @@ function statusOf(tid){
   if(prev === null) return { k:'new', cur };
   if(cur > prev)   return { k:'up', cur };
   if(cur < prev)   return { k:'down', cur };
-  return { k: cur === 3 ? 'hot' : 'flat', cur };   // 변화 없음: 상 유지=hot, 그 외=flat
+  return { k: cur === 3 ? 'hot' : 'flat', cur };
 }
 const RANK = { up:0, new:1, hot:2, flat:3, down:4, gone:5, none:6 };
 const LEGFLAG = { up:'▲ 뜨는 중', new:'NEW', hot:'★ 강세', flat:'= 유지', down:'▼ 식는 중', gone:'▽ 빠짐', none:'' };
+
 function deltaFor(j, tid){
   if(j === 0) return '';
   const cur = lvOf(REPORTS[j], tid);
@@ -425,10 +466,83 @@ function deltaFor(j, tid){
   return '<span class="delta new">NEW</span>';
 }
 
+/* ① 이번 달 한눈에 — 뜬 / 계속 강세 / 식은 테마를 깔끔한 행으로 */
+function renderNow(){
+  const latest = REPORTS[REPORTS.length-1];
+  const up=[], dn=[], hot=[];
+  THEMES.forEach(t=>{
+    const k = statusOf(t.id).k;
+    if(k==='up' || k==='new') up.push(t);
+    else if(k==='down' || k==='gone') dn.push(t);
+    else if(k==='hot') hot.push(t);
+  });
+  const row = (cls, ico, label, arr) => arr.length
+    ? `<div class="sumrow ${cls}"><span class="sumlabel"><span class="sar">${ico}</span>${label}</span>`
+      + `<span class="sumpills">${arr.map(t=>`<span class="pill">${t.short||t.name}</span>`).join('')}</span></div>`
+    : '';
+  document.getElementById('sumrows').innerHTML =
+      row('up','▲','이번에 떴어요', up)
+    + row('hot','★','계속 강세예요', hot)
+    + row('dn','▼','이번에 식었어요', dn);
+  document.getElementById('sumcap').innerHTML =
+    `<b>${ym(latest.date)} 기준</b> · ${latest.headline}`;
+}
+
+/* ② 월별 추천 제품 — 리포트 products를 달별로 묶어서 */
+function productMonths(){
+  const map = new Map();               // 'YYYY-MM' -> 그 달의 최신 (products 있는) 리포트
+  REPORTS.forEach(r=>{
+    if(!r.products || !r.products.length) return;
+    const k = r.date.slice(0,7);
+    const cur = map.get(k);
+    if(!cur || r.date > cur.date) map.set(k, r);
+  });
+  return [...map.entries()].sort((a,b)=> a[0] < b[0] ? 1 : -1);   // 최신 월이 앞
+}
+function continuousNos(months){
+  const seen = {};
+  months.forEach(([k,r])=> r.products.forEach(p=>{ (seen[p.no]=seen[p.no]||new Set()).add(k); }));
+  const s = new Set();
+  Object.keys(seen).forEach(no=>{ if(seen[no].size > 1) s.add(+no); });
+  return s;
+}
+function renderProducts(){
+  const months = productMonths();
+  const pmonths = document.getElementById('pmonths');
+  const pgrid = document.getElementById('pgrid');
+  const pcap = document.getElementById('pcap');
+  const pnote = document.getElementById('pnote');
+  if(!months.length){
+    pmonths.innerHTML=''; pcap.innerHTML='';
+    pgrid.innerHTML='<div class="pempty">아직 저장된 추천 제품이 없어요.</div>'; return;
+  }
+  const cont = continuousNos(months);
+  function show(k){
+    const found = months.find(m=>m[0]===k) || months[0];
+    const r = found[1];
+    pgrid.innerHTML = r.products.map((p,i)=>{
+      const url = `https://wblbeauty.com/product/detail.html?product_no=${p.no}`;
+      return `<div class="pcard">`
+        + `<div class="pthumb"><span class="prank">PICK ${i+1}</span><img src="${p.img}" alt="${p.name}" loading="lazy"></div>`
+        + `<div class="pbody"><div class="pname">${p.name}</div>`
+        + `<div class="prow"><span class="pprice">${p.price}<small>원</small></span>${cont.has(p.no)?'<span class="pcont">★ 계속 추천</span>':''}</div>`
+        + `<span class="ptag">${p.tag}</span>`
+        + `<a class="plink" href="${url}" target="_blank" rel="noopener">상품 보기 ↗</a></div></div>`;
+    }).join('');
+    pcap.innerHTML = `<b>${k.replace('-','.')}</b> · ${r.season} · 추천 ${r.products.length}종`;
+    [...pmonths.children].forEach(b=> b.classList.toggle('on', b.dataset.m === k));
+  }
+  pmonths.innerHTML = months.map(([k],i)=>
+    `<button class="pmpill${i===0?' on':''}" data-m="${k}" type="button">${k.replace('-','.')}</button>`).join('');
+  [...pmonths.children].forEach(b=> b.addEventListener('click', ()=> show(b.dataset.m)));
+  pnote.innerHTML = '지금은 <b>트렌드 기반 추천</b> 제품이에요 (실판매 인기 순위 아님). 마케팅 성과 데이터가 붙으면 같은 자리에 실제 인기까지 표시할 예정. · ★ 계속 추천 = 여러 달 연속 추천된 제품';
+  show(months[0][0]);
+}
+
 /* 테마별 고정 색 (범례·라인 공유) */
 const COLORS = { bracelet:'#1577cc', pearl:'#e08a1e', silver:'#667085', earring:'#e0518d', layered:'#8a5cf6', marine:'#12b5c9', gem:'#27ae60' };
 
-/* 테마별 흐름 — 7개 테마를 한 SVG 라인 차트에 그리고 범례로 강조 */
+/* ③ 테마별 흐름 — 7개 테마를 한 SVG 라인 차트에 그리고 범례로 강조 */
 function renderTrendChart(){
   const n = REPORTS.length;
   const W=860, H=300, L=54, Rr=828, T=22, B=252;
@@ -476,19 +590,14 @@ function renderTrendChart(){
     + `<div class="cxhint">범례를 누르면 그 테마만 강조 · 다시 누르면 해제</div>`;
   wireChart();
 }
-
-/* 범례 hover 미리보기 + 클릭 고정 강조 */
 function wireChart(){
   const lines = document.querySelector('.cx-lines');
   const legs = [...document.querySelectorAll('.cxleg')];
-  const seriesEl = id => document.querySelector(`.cx-series[data-theme="${id}"]`);
   const locked = new Set();
-
   function paint(preview){
     const active = new Set(locked);
     if(preview) active.add(preview);
-    const any = active.size > 0;
-    lines.classList.toggle('focus', any);
+    lines.classList.toggle('focus', active.size > 0);
     document.querySelectorAll('.cx-series').forEach(g=> g.classList.toggle('hi', active.has(g.dataset.theme)));
     legs.forEach(b=>{
       const on = locked.has(b.dataset.theme);
@@ -504,28 +613,7 @@ function wireChart(){
   });
 }
 
-/* 지금 한눈에 — 최신 회차에서 뜬 / 식은 / 계속 강한 테마 */
-function renderNow(){
-  const latest = REPORTS[REPORTS.length-1];
-  const up=[], dn=[], hot=[];
-  THEMES.forEach(t=>{
-    const k = statusOf(t.id).k;
-    if(k==='up' || k==='new') up.push(t);
-    else if(k==='down' || k==='gone') dn.push(t);
-    else if(k==='hot') hot.push(t);
-  });
-  const chips = arr => arr.length
-    ? `<div class="chips">${arr.map(t=>`<span class="chip">${t.short||t.name}</span>`).join('')}</div>`
-    : `<div class="nempty">이번 회차엔 없어요</div>`;
-  document.getElementById('nowgrid').innerHTML =
-      `<div class="nowcol up"><div class="nlabel"><span class="ar">▲</span> 이번에 떴어요</div>${chips(up)}</div>`
-    + `<div class="nowcol dn"><div class="nlabel"><span class="ar">▼</span> 이번에 식었어요</div>${chips(dn)}</div>`
-    + `<div class="nowcol hot"><div class="nlabel"><span class="ar">★</span> 계속 강세예요</div>${chips(hot)}</div>`;
-  document.getElementById('nowcap').innerHTML =
-    `<b>${latest.date.slice(0,7).replace('-','.')} 기준</b> · ${latest.headline}`;
-}
-
-/* 요즘 뜨는 트렌드 — 리포트 밖 외부 신호 (인스타 직접수집은 로그인월로 막혀 캐릿/매거진/리서치로 대체) */
+/* ④ 요즘 뜨는 트렌드 — 리포트 밖 외부 신호 (인스타 직접수집은 로그인월로 막혀 캐릿/매거진/리서치로 대체) */
 const TRENDING = [
   { tag:'볼드 스컬프처럴 귀걸이', src:'mag', srcLabel:'매거진',
     desc:'조형적인 대형 귀걸이가 F/W 룩의 중심 · 한 점으로 얼굴 프레이밍',
@@ -557,13 +645,24 @@ function renderTrending(){
     '기준 2026-08-28 · 캐릿(careet.net) · 패션 매거진 · 리서치 종합 — 인스타그램 직접 수집은 로그인월로 막혀 이 경로로 대체했어요.';
 }
 
+/* ⑤ 리포트 기록 — 리스트 */
+function renderArchive(){
+  document.getElementById('archive').innerHTML = REPORTS.slice().reverse().map(r => `
+    <a class="ritem" href="${r.file}" target="_blank" rel="noopener">
+      <span class="rbadge">${yy(r.date)} ${r.season}</span>
+      <span class="rhead">${r.headline}</span>
+      <span class="rmeta">${r.date} · 추천 ${r.picks}종</span>
+      <span class="rgo">↗</span>
+    </a>`).join('');
+}
+
+/* ⑥ 히트맵 표 */
 function renderMatrix(){
   let head = '<thead><tr><th class="corner">테마 \\ 리포트</th>';
   REPORTS.forEach(r => {
     head += `<th><span class="cseason">${yy(r.date)} ${r.season}</span><span class="cdate">${r.date.slice(5)}</span></th>`;
   });
   head += '</tr></thead>';
-
   let body = '<tbody>';
   THEMES.forEach(th => {
     body += `<tr><th scope="row"><div class="tname">${th.name}</div><div class="tnote">${th.note}</div></th>`;
@@ -577,41 +676,22 @@ function renderMatrix(){
   document.getElementById('matrix').innerHTML = head + body;
 }
 
-function renderArchive(){
-  const el = document.getElementById('archive');
-  el.innerHTML = REPORTS.slice().reverse().map(r => `
-    <a class="arccard" href="${r.file}" target="_blank" rel="noopener">
-      <div class="arctop"><span class="badge blue">${yy(r.date)} ${r.season}</span><span class="arcdate">${r.date}</span></div>
-      <div class="archead">${r.headline}</div>
-      <div class="arcmeta">트렌드 ${r.trends} · 추천 ${r.picks} · 기간 ${r.period}</div>
-      <div class="arcgo">리포트 열기 ↗</div>
-    </a>`).join('');
-}
-
-function renderStats(){
+/* 히어로 메타 + 링크 */
+function renderMeta(){
   const first = REPORTS[0].date, last = REPORTS[REPORTS.length-1].date;
-  const stats = [
-    { num:`${REPORTS.length}<small>건</small>`, label:'누적 리포트' },
-    { num:`${THEMES.length}<small>개</small>`, label:'추적 테마' },
-    { num:first.slice(0,7).replace('-','.'), label:'첫 기록' },
-    { num:`<b>${last.slice(0,7).replace('-','.')}</b>`, label:'최근 갱신' },
-  ];
-  document.getElementById('stats').innerHTML = stats.map(s =>
-    `<div class="stat"><div class="snum">${s.num}</div><div class="slabel">${s.label}</div></div>`).join('');
-
-  const latest = REPORTS[REPORTS.length-1];
-  document.getElementById('stamp').textContent =
-    `누적 리포트 ${REPORTS.length}건 · ${first} ~ ${last} · 테마 ${THEMES.length}개 추적 · 새 리포트가 나오면 표에 칸이 하나씩 늘어나요`;
-  document.getElementById('latestReportBtn').href = latest.file;
+  document.getElementById('meta').innerHTML =
+    `누적 <b>${REPORTS.length}</b>회 · ${ym(first)} – ${ym(last)} · 테마 <b>${THEMES.length}</b>개 추적`;
+  document.getElementById('latestReportBtn').href = REPORTS[REPORTS.length-1].file;
   document.getElementById('foot').textContent = last;
 }
 
-renderStats();
+renderMeta();
 renderNow();
-renderTrending();
+renderProducts();
 renderTrendChart();
-renderMatrix();
+renderTrending();
 renderArchive();
+renderMatrix();
 </script>
 </body>
 </html>
