@@ -96,6 +96,69 @@ body{font-family:'Pretendard Variable',Pretendard,-apple-system,sans-serif;
 .stat .snum b{color:var(--txt-blue-primary);font-weight:800}
 .stat .slabel{font-size:12.5px;color:var(--txt-tertiary);margin-top:4px}
 
+/* 지금 한눈에 */
+.nowpanel{background:var(--bg-primary);border:1px solid var(--border-tertiary);border-radius:16px;
+  box-shadow:var(--shadow-sm);padding:20px 22px}
+.nowpanel .npcap{font-size:14px;color:var(--txt-secondary);line-height:1.5;padding-bottom:14px;margin-bottom:16px;
+  border-bottom:1px solid var(--border-tertiary)}
+.nowpanel .npcap b{color:var(--txt-primary);font-weight:700}
+.nowgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.nowcol{background:var(--bg-secondary);border:1px solid var(--border-tertiary);border-radius:12px;padding:15px 16px}
+.nowcol .nlabel{font-size:13px;font-weight:700;color:var(--txt-secondary);display:flex;align-items:center;gap:7px;margin-bottom:12px}
+.nowcol .nlabel .ar{font-size:14px;font-weight:900;line-height:1}
+.nowcol.up .nlabel .ar{color:var(--status-positive)}
+.nowcol.dn .nlabel .ar{color:var(--status-negative)}
+.nowcol.hot .nlabel .ar{color:var(--txt-blue-primary)}
+.chips{display:flex;flex-wrap:wrap;gap:7px}
+.chip{display:inline-flex;align-items:center;font-size:13px;font-weight:700;padding:6px 12px;border-radius:999px;
+  background:var(--bg-tertiary);color:var(--txt-secondary)}
+.nowcol.up .chip{background:color-mix(in srgb,var(--status-positive) 15%,var(--bg-primary));color:#1b8f2b}
+.nowcol.dn .chip{background:color-mix(in srgb,var(--status-negative) 13%,var(--bg-primary));color:#c0182f}
+.nowcol.hot .chip{background:var(--bg-blue-primary);color:var(--txt-blue-primary)}
+.nowcol .nempty{font-size:13px;color:var(--txt-caption)}
+[data-theme="dark"] .nowcol.up .chip{color:#7ee68a}
+[data-theme="dark"] .nowcol.dn .chip{color:#ff8ba0}
+[data-theme="dark"] .nowcol.hot .chip{color:var(--blue-200)}
+
+/* 테마별 흐름 카드 (미니 그래프 small-multiples) */
+.trendgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(215px,1fr));gap:14px}
+.tcard{background:var(--bg-primary);border:1px solid var(--border-tertiary);border-radius:16px;
+  padding:16px 16px 14px;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;gap:12px}
+.tcard .tc-name{font-size:14.5px;font-weight:700;line-height:1.3}
+.tcard .tc-note{font-size:11px;color:var(--txt-tertiary);margin-top:2px}
+.tcard .tc-spark{width:100%;padding:2px 0}
+.spark{width:100%;height:auto;display:block;overflow:visible}
+.spark .sarea{fill:var(--blue-500);opacity:.10}
+.spark .sl{fill:none;stroke:var(--blue-500);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.spark .d{fill:var(--blue-300)}
+.spark .d0{fill:var(--bg-primary);stroke:var(--gray-500);stroke-width:1.4}
+.spark .dlast{fill:var(--blue-500)}
+.spark .grid{stroke:var(--border-tertiary);stroke-width:1;stroke-dasharray:3 4}
+.tcard .tc-foot{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.tc-status{font-size:13px;font-weight:600;color:var(--txt-tertiary)}
+.tc-status b{font-weight:800;color:var(--txt-primary)}
+.tflag{display:inline-flex;align-items:center;gap:4px;font-size:11.5px;font-weight:800;padding:4px 10px;border-radius:999px;white-space:nowrap}
+.tflag.up{background:color-mix(in srgb,var(--status-positive) 15%,var(--bg-primary));color:#1b8f2b}
+.tflag.dn{background:color-mix(in srgb,var(--status-negative) 13%,var(--bg-primary));color:#c0182f}
+.tflag.flat{background:var(--bg-tertiary);color:var(--txt-tertiary)}
+.tflag.hot{background:var(--bg-blue-primary);color:var(--txt-blue-primary)}
+.tflag.new{background:color-mix(in srgb,var(--blue-400) 20%,var(--bg-primary));color:var(--txt-blue-primary)}
+[data-theme="dark"] .tflag.up{color:#7ee68a}
+[data-theme="dark"] .tflag.dn{color:#ff8ba0}
+[data-theme="dark"] .tflag.hot,[data-theme="dark"] .tflag.new{color:var(--blue-200)}
+
+/* 표로 자세히 보기 (접기) */
+.more{background:var(--bg-primary);border:1px solid var(--border-tertiary);border-radius:14px;
+  box-shadow:var(--shadow-sm);overflow:hidden}
+.more>summary{list-style:none;cursor:pointer;padding:15px 18px;font-size:14.5px;font-weight:700;
+  display:flex;align-items:center;justify-content:space-between;gap:10px;color:var(--txt-secondary)}
+.more>summary::-webkit-details-marker{display:none}
+.more>summary:hover{color:var(--txt-primary)}
+.more>summary .chev{color:var(--txt-tertiary);transition:transform .2s;flex:0 0 auto}
+.more[open]>summary .chev{transform:rotate(180deg)}
+.more .more-body{padding:2px 16px 18px}
+.more .more-body .hint{display:block;font-size:12.5px;color:var(--txt-tertiary);margin-bottom:12px}
+
 /* Trend matrix (테마 × 리포트 히트맵) */
 .matrix-wrap{background:var(--bg-primary);border:1px solid var(--border-tertiary);border-radius:16px;
   box-shadow:var(--shadow-sm);padding:10px;overflow-x:auto}
@@ -198,7 +261,7 @@ table.matrix thead th .cdate{display:block;font-size:11.5px;font-weight:600;colo
   <div class="hero">
     <span class="eyebrow">▲ 트렌드 아카이브</span>
     <h1>트렌드가 어떻게 변해왔는지 한눈에 봐요.</h1>
-    <p class="lead">그동안 만든 트렌드 리포트를 한 장에 모았어요. 아래 표에서 테마별 부상 강도가 시점마다 어떻게 오르내렸는지 색으로 보여드려요. 리포트가 쌓일수록 <b>지난해 같은 계절과 비교</b>하기 좋아지는 그릇이에요 — 새 리포트가 나오면 표에 칸이 하나씩 늘어나요.</p>
+    <p class="lead">그동안의 트렌드 리포트를 한 곳에 모았어요. 맨 위 <b>‘지금 한눈에’</b>만 봐도 이번 달에 뭐가 뜨고 식었는지 바로 알 수 있고, 아래로 내려가면 <b>테마별 흐름</b>을 미니 그래프로 확인할 수 있어요. 리포트가 쌓일수록 지난해 같은 계절과 비교하기 좋아져요.</p>
     <p class="stamp" id="stamp">누적 리포트 로딩 중…</p>
     <div class="herobtns">
       <a class="btn btn-primary" href="index.html">최신 대시보드 보기</a>
@@ -209,21 +272,19 @@ table.matrix thead th .cdate{display:block;font-size:11.5px;font-weight:600;colo
   <!-- STAT ROW -->
   <div class="stats" id="stats"></div>
 
-  <!-- 트렌드 변화 매트릭스 -->
+  <!-- 지금 한눈에 -->
   <div class="section">
-    <div class="section-head"><h2>트렌드 변화 매트릭스</h2><span class="hint">테마 × 리포트 · 색이 진할수록 부상 강도 상 · 화살표는 지난 리포트 대비</span></div>
-    <div class="matrix-wrap">
-      <table class="matrix" id="matrix"></table>
+    <div class="section-head"><h2>지금 한눈에</h2><span class="hint">가장 최근 리포트 기준으로 달라진 것만 추렸어요</span></div>
+    <div class="nowpanel">
+      <div class="npcap" id="nowcap">불러오는 중…</div>
+      <div class="nowgrid" id="nowgrid"></div>
     </div>
-    <div class="legend">
-      <span class="lg"><span class="sw lv3"></span> 상 (강함)</span>
-      <span class="lg"><span class="sw lv2"></span> 중</span>
-      <span class="lg"><span class="sw lv1"></span> 하 (약함)</span>
-      <span class="lg"><span class="sw lv0"></span> 해당 없음</span>
-      <span class="lg"><span class="delta up">▲</span> 상승</span>
-      <span class="lg"><span class="delta dn">▼</span> 하락</span>
-      <span class="lg"><span class="delta eq">=</span> 유지</span>
-    </div>
+  </div>
+
+  <!-- 테마별 흐름 (미니 그래프) -->
+  <div class="section">
+    <div class="section-head"><h2>테마별 흐름</h2><span class="hint">각 테마가 리포트마다 어떻게 오르내렸는지 · 지금 강한 순서로</span></div>
+    <div class="trendgrid" id="trendcards"></div>
   </div>
 
   <!-- 리포트 아카이브 -->
@@ -232,12 +293,32 @@ table.matrix thead th .cdate{display:block;font-size:11.5px;font-weight:600;colo
     <div class="arclist" id="archive"></div>
   </div>
 
-  <!-- 데이터 메모 -->
+  <!-- 표로 자세히 보기 (원본 히트맵) -->
   <div class="section">
-    <div class="alert info">
-      <svg class="ico" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
-      <div>강도(상 · 중 · 하)는 각 리포트의 <b>'부상 강도'</b>를 옮긴 값이에요. 리포트마다 트렌드 이름이 조금씩 달라서 <b>7개 테마로 표준화</b>해 맞췄어요. 06-24는 06-23 하루 뒤 재검증본이라 같은 초여름이에요. 눈여겨볼 흐름 — <b>진주</b>는 6월엔 담수 · 중간이었다가 6/24엔 컬러 젬 흐름에 잠깐 흡수됐고 8월엔 <b>바로크 · 대형으로 격상</b>됐어요. <b>바다 · 조개</b>는 여름엔 강했다가 가을 진입하며 잦아들었고요. 새 리포트가 나오면 이 페이지의 데이터에 한 줄만 추가하면 표 · 카드가 자동으로 늘어나요.</div>
-    </div>
+    <details class="more">
+      <summary>표로 자세히 보기 — 테마 × 리포트 히트맵
+        <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+      </summary>
+      <div class="more-body">
+        <span class="hint">색이 진할수록 부상 강도 ‘상’ · 화살표는 지난 리포트 대비 · 가로로 넘기면 예전 리포트까지 보여요</span>
+        <div class="matrix-wrap">
+          <table class="matrix" id="matrix"></table>
+        </div>
+        <div class="legend">
+          <span class="lg"><span class="sw lv3"></span> 상 (강함)</span>
+          <span class="lg"><span class="sw lv2"></span> 중</span>
+          <span class="lg"><span class="sw lv1"></span> 하 (약함)</span>
+          <span class="lg"><span class="sw lv0"></span> 해당 없음</span>
+          <span class="lg"><span class="delta up">▲</span> 상승</span>
+          <span class="lg"><span class="delta dn">▼</span> 하락</span>
+          <span class="lg"><span class="delta eq">=</span> 유지</span>
+        </div>
+        <div class="alert info" style="margin-top:16px">
+          <svg class="ico" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+          <div>강도(상 · 중 · 하)는 각 리포트의 <b>‘부상 강도’</b>를 <b>7개 테마로 표준화</b>한 값이에요. 새 리포트가 나오면 데이터에 한 줄만 추가되고 위쪽 그래프 · 표가 자동으로 늘어나요. (06-24는 06-23 재검증본이라 같은 초여름이에요.)</div>
+        </div>
+      </div>
+    </details>
   </div>
 
   <div class="footer">wbL Trend Archive · W-ISLAND 디자인 시스템 적용 · <span id="foot"></span></div>
@@ -251,13 +332,13 @@ table.matrix thead th .cdate{display:block;font-size:11.5px;font-weight:600;colo
    테마 id는 아래 THEMES 목록과 맞춰요.
    =================================================================== */
 const THEMES = [
-  { id:'bracelet', name:'팔찌 · 청키/커프/뱅글', note:'두툼한 커프 · 와이드 뱅글' },
-  { id:'pearl',    name:'진주 · 담수→바로크',    note:'작은 담수 → 큼직한 바로크' },
-  { id:'silver',   name:'실버 · 믹스드 메탈',     note:'은·금 믹스 · 실버 재부상' },
-  { id:'earring',  name:'스테이트먼트 귀걸이',    note:'조형적 · 볼드 · 한 점' },
-  { id:'layered',  name:'레이어드 목걸이',        note:'2~3겹 대비 레이어드' },
-  { id:'marine',   name:'바다 · 조개 모티프',     note:'조개 · 물결 (여름형)' },
-  { id:'gem',      name:'컬러 젬스톤',            note:'무디한 가을 컬러 젬' },
+  { id:'bracelet', name:'팔찌 · 청키/커프/뱅글', short:'청키 팔찌',   note:'두툼한 커프 · 와이드 뱅글' },
+  { id:'pearl',    name:'진주 · 담수→바로크',    short:'바로크 진주', note:'작은 담수 → 큼직한 바로크' },
+  { id:'silver',   name:'실버 · 믹스드 메탈',     short:'실버 믹스',   note:'은·금 믹스 · 실버 재부상' },
+  { id:'earring',  name:'스테이트먼트 귀걸이',    short:'볼드 귀걸이', note:'조형적 · 볼드 · 한 점' },
+  { id:'layered',  name:'레이어드 목걸이',        short:'레이어드',    note:'2~3겹 대비 레이어드' },
+  { id:'marine',   name:'바다 · 조개 모티프',     short:'바다·조개',   note:'조개 · 물결 (여름형)' },
+  { id:'gem',      name:'컬러 젬스톤',            short:'컬러 젬',     note:'무디한 가을 컬러 젬' },
 ];
 
 const REPORTS = [
@@ -283,8 +364,34 @@ const REPORTS = [
    =================================================================== */
 
 const LV = {3:'상', 2:'중', 1:'하', 0:'—'};
+const LVWORD = {3:'강세', 2:'보통', 1:'약함', 0:'없음'};
 const yy = d => "'" + d.slice(2,4);
 const lvOf = (r,t) => (r.levels && r.levels[t]) ? r.levels[t] : 0;
+
+/* 최신 리포트 기준으로 각 테마의 상태를 분류 (직전 '등장했던' 회차와 비교) */
+function statusOf(tid){
+  const j = REPORTS.length - 1;
+  const cur = lvOf(REPORTS[j], tid);
+  let prev = null;
+  for(let i = j-1; i >= 0; i--){ const p = lvOf(REPORTS[i], tid); if(p > 0){ prev = p; break; } }
+  if(cur === 0) return { k: prev !== null ? 'gone' : 'none', cur };
+  if(prev === null) return { k:'new', cur };
+  if(cur > prev)   return { k:'up', cur };
+  if(cur < prev)   return { k:'down', cur };
+  return { k: cur === 3 ? 'hot' : 'flat', cur };   // 변화 없음: 상 유지=hot, 그 외=flat
+}
+const RANK = { up:0, new:1, hot:2, flat:3, down:4, gone:5, none:6 };
+function flagHTML(s){
+  switch(s.k){
+    case 'up':   return '<span class="tflag up">▲ 뜨는 중</span>';
+    case 'new':  return '<span class="tflag new">NEW 신규</span>';
+    case 'down': return '<span class="tflag dn">▼ 식는 중</span>';
+    case 'gone': return '<span class="tflag dn">▽ 빠짐</span>';
+    case 'hot':  return '<span class="tflag hot">★ 계속 강세</span>';
+    case 'flat': return '<span class="tflag flat">= 유지</span>';
+    default:     return '<span class="tflag flat">—</span>';
+  }
+}
 
 function deltaFor(j, tid){
   if(j === 0) return '';
@@ -299,6 +406,64 @@ function deltaFor(j, tid){
     }
   }
   return '<span class="delta new">NEW</span>';
+}
+
+/* 테마 하나의 강도 추이를 인라인 SVG 스파크라인으로 */
+function sparkSVG(tid){
+  const W=150, H=44, px=9, pt=7, pb=8, n=REPORTS.length;
+  const X = i => n<=1 ? W/2 : px + i*(W-2*px)/(n-1);
+  const Y = lv => pt + (3-lv)/3*(H-pt-pb);
+  const P = REPORTS.map((r,i)=>({ x:X(i), y:Y(lvOf(r,tid)), lv:lvOf(r,tid) }));
+  const base = Y(0).toFixed(1);
+  const line = P.map(p=>`${p.x.toFixed(1)},${p.y.toFixed(1)}`).join(' ');
+  const area = `M${P[0].x.toFixed(1)},${base} ` + P.map(p=>`L${p.x.toFixed(1)},${p.y.toFixed(1)}`).join(' ') + ` L${P[n-1].x.toFixed(1)},${base} Z`;
+  const dots = P.map((p,i)=>{
+    const last = i===n-1;
+    const cls = p.lv===0 ? 'd0' : (last ? 'dlast' : 'd');
+    const r = last ? 3.6 : 2.3;
+    return `<circle cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="${r}" class="${cls}"/>`;
+  }).join('');
+  return `<svg class="spark" viewBox="0 0 ${W} ${H}" preserveAspectRatio="xMidYMid meet" role="img" aria-hidden="true">`
+    + `<line class="grid" x1="${px}" y1="${base}" x2="${W-px}" y2="${base}"/>`
+    + `<path class="sarea" d="${area}"/>`
+    + `<polyline class="sl" points="${line}"/>${dots}</svg>`;
+}
+
+/* 지금 한눈에 — 최신 회차에서 뜬 / 식은 / 계속 강한 테마 */
+function renderNow(){
+  const latest = REPORTS[REPORTS.length-1];
+  const up=[], dn=[], hot=[];
+  THEMES.forEach(t=>{
+    const k = statusOf(t.id).k;
+    if(k==='up' || k==='new') up.push(t);
+    else if(k==='down' || k==='gone') dn.push(t);
+    else if(k==='hot') hot.push(t);
+  });
+  const chips = arr => arr.length
+    ? `<div class="chips">${arr.map(t=>`<span class="chip">${t.short||t.name}</span>`).join('')}</div>`
+    : `<div class="nempty">이번 회차엔 없어요</div>`;
+  document.getElementById('nowgrid').innerHTML =
+      `<div class="nowcol up"><div class="nlabel"><span class="ar">▲</span> 이번에 떴어요</div>${chips(up)}</div>`
+    + `<div class="nowcol dn"><div class="nlabel"><span class="ar">▼</span> 이번에 식었어요</div>${chips(dn)}</div>`
+    + `<div class="nowcol hot"><div class="nlabel"><span class="ar">★</span> 계속 강세예요</div>${chips(hot)}</div>`;
+  document.getElementById('nowcap').innerHTML =
+    `<b>${latest.date.slice(0,7).replace('-','.')} 기준</b> · ${latest.headline}`;
+}
+
+/* 테마별 흐름 — 미니 그래프 카드, 지금 강한 순서 */
+function renderTrendCards(){
+  const latest = REPORTS[REPORTS.length-1];
+  const order = THEMES.map((t,i)=>({ t, i, cur:lvOf(latest,t.id), s:statusOf(t.id) }))
+    .sort((a,b)=> b.cur-a.cur || RANK[a.s.k]-RANK[b.s.k] || a.i-b.i);
+  document.getElementById('trendcards').innerHTML = order.map(({t,cur,s})=>`
+    <div class="tcard">
+      <div><div class="tc-name">${t.name}</div><div class="tc-note">${t.note}</div></div>
+      <div class="tc-spark">${sparkSVG(t.id)}</div>
+      <div class="tc-foot">
+        <span class="tc-status">지금 <b>${LVWORD[cur]}</b></span>
+        ${flagHTML(s)}
+      </div>
+    </div>`).join('');
 }
 
 function renderMatrix(){
@@ -351,6 +516,8 @@ function renderStats(){
 }
 
 renderStats();
+renderNow();
+renderTrendCards();
 renderMatrix();
 renderArchive();
 </script>
