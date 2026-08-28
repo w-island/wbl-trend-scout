@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<!-- wbL Trend Scout — 트렌드 리포트 (2026-08-28 생성) · W-ISLAND 디자인 시스템 -->
+<html lang="ko" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#1577cc">
+<title>wbL Trend Scout — 트렌드 리포트</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+:root{
+  --blue-50:#ebf5fd;--blue-100:#cce6fa;--blue-200:#9fd0f4;--blue-300:#5cb4ee;
+  --blue-400:#1da4ff;--blue-500:#1577cc;--blue-600:#1166b0;--blue-700:#0e5390;
+  --blue-800:#0b4172;--blue-900:#093356;
+  --status-positive:#3BCC4B;--status-negative:#d6173a;--status-warning:#e8920c;
+}
+[data-theme="light"]{
+  --gray-50:#f9f9fa;--gray-100:#ececf0;--gray-200:#e3e3e8;--gray-300:#d6d7de;
+  --gray-400:#cecfd7;--gray-500:#c2c3cd;--gray-600:#b1b1bb;--gray-700:#8a8a92;
+  --gray-800:#6b6b71;--gray-900:#515256;--gray-1000:#2A2C2F;--g1000-rgb:42,44,47;
+  --surface-1:#ffffff;--surface-2:#f9fafb;--surface-3:#f2f4f6;
+  --txt-link:#1f7a8c;--bg-invert:#2A2C2F;--bg-blue-primary:#cce6fa;
+  --shadow-sm:0 1px 3px rgba(0,0,0,.06);--shadow-md:0 4px 12px rgba(0,0,0,.08);
+  --shadow-lg:0 10px 28px rgba(0,0,0,.10);--shadow-xl:0 20px 48px rgba(0,0,0,.14);
+}
+[data-theme="dark"]{
+  --gray-50:#17171c;--gray-100:#202028;--gray-200:#292932;--gray-300:#3c3c46;
+  --gray-400:#4e4e5a;--gray-500:#6b6b78;--gray-600:#8b95a1;--gray-700:#a9adb8;
+  --gray-800:#c2c5cc;--gray-900:#e3e4e8;--gray-1000:#f3f4f6;--g1000-rgb:243,244,246;
+  --surface-1:#202028;--surface-2:#17171c;--surface-3:#292932;
+  --txt-link:#5ec8d2;--bg-invert:#f3f4f6;--bg-blue-primary:#0b4172;
+  --shadow-sm:0 1px 3px rgba(0,0,0,.4);--shadow-md:0 4px 12px rgba(0,0,0,.45);
+  --shadow-lg:0 10px 28px rgba(0,0,0,.5);--shadow-xl:0 20px 48px rgba(0,0,0,.6);
+}
+:root{
+  --txt-primary:rgba(var(--g1000-rgb),1);--txt-secondary:rgba(var(--g1000-rgb),.80);
+  --txt-tertiary:rgba(var(--g1000-rgb),.60);--txt-caption:rgba(var(--g1000-rgb),.50);
+  --txt-disabled:rgba(var(--g1000-rgb),.30);
+  --txt-blue-primary:var(--blue-500);--txt-blue-secondary:var(--blue-400);
+  --bg-primary:var(--surface-1);--bg-secondary:var(--surface-2);--bg-tertiary:var(--surface-3);
+  --border-primary:var(--gray-1000);
+  --border-secondary:rgba(var(--g1000-rgb),.20);--border-tertiary:rgba(var(--g1000-rgb),.10);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Pretendard Variable',Pretendard,-apple-system,sans-serif;
+  background:var(--bg-secondary);color:var(--txt-primary);line-height:1.6;
+  -webkit-font-smoothing:antialiased;transition:background .18s,color .18s}
+.wrap{max-width:1000px;margin:0 auto;padding:20px 20px 64px}
+
+/* GNB */
+.gnb{display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding:12px 18px;background:var(--bg-primary);border:1px solid var(--border-tertiary);
+  border-radius:12px;box-shadow:var(--shadow-sm);position:sticky;top:14px;z-index:10;margin-bottom:24px}
+.lockup{display:inline-flex;align-items:center;gap:11px}
+.logo-mark{width:36px;height:36px;border-radius:10px;background:var(--blue-500);color:#fff;
+  display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;letter-spacing:-.02em;flex:0 0 auto}
+.logo-title{font-size:18px;font-weight:700;letter-spacing:-.01em}
+.logo-sub{font-size:12.5px;color:var(--txt-tertiary);font-weight:500}
+.theme-btn{width:38px;height:38px;border-radius:10px;border:1px solid var(--border-secondary);
+  background:transparent;color:var(--txt-secondary);cursor:pointer;display:flex;align-items:center;justify-content:center}
+.theme-btn:hover{background:var(--bg-tertiary);color:var(--txt-primary)}
+
+/* Hero — 한 줄 요약 */
+.hero{background:var(--bg-primary);border:1px solid var(--border-tertiary);border-radius:16px;
+  padding:28px 28px;box-shadow:var(--shadow-sm);margin-bottom:14px}
+.hero .eyebrow{font-size:12.5px;font-weight:700;color:var(--txt-blue-primary);letter-spacing:.02em;margin-bottom:10px;
+  display:inline-flex;align-items:center;gap:7px}
+.hero h1{font-size:28px;font-weight:700;line-height:1.3;letter-spacing:-.01em}
+.hero .lead{font-size:16px;color:var(--txt-secondary);margin-top:12px;max-width:62ch}
+.hero .stamp{font-size:12px;color:var(--txt-caption);margin-top:16px}
+
+/* Section */
+.section{margin-top:34px}
+.section-head{display:flex;align-items:baseline;gap:10px;margin-bottom:16px}
+.section-head h2{font-size:22px;font-weight:700;letter-spacing:-.01em}
+.section-head .hint{font-size:13px;color:var(--txt-tertiary)}
+
+/* Badge */
+.badge{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:700;
+  padding:4px 10px;border-radius:999px;white-space:nowrap}
+.badge.blue{background:color-mix(in srgb,var(--blue-500) 16%,var(--bg-primary));color:var(--txt-blue-primary)}
+.badge.pos{background:color-mix(in srgb,var(--status-positive) 18%,var(--bg-primary));color:var(--status-positive)}
+.badge.gray{background:var(--bg-tertiary);color:var(--txt-secondary)}
+.badge.warn{background:color-mix(in srgb,var(--status-warning) 18%,var(--bg-primary));color:#9a6206}
+.badge.neg{background:color-mix(in srgb,var(--status-negative) 16%,var(--bg-primary));color:var(--status-negative)}
+[data-theme="dark"] .badge.blue{color:var(--blue-200)}
+[data-theme="dark"] .badge.warn{color:#f0b35a}
+
+/* Trend list */
+.trend{display:flex;gap:16px;padding:18px;background:var(--bg-primary);
+  border:1px solid var(--border-tertiary);border-radius:14px;box-shadow:var(--shadow-sm)}
+.trend + .trend{margin-top:10px}
+.trend .rank{width:34px;height:34px;border-radius:50%;flex:0 0 auto;background:var(--blue-500);color:#fff;
+  font-weight:800;font-size:15px;display:flex;align-items:center;justify-content:center}
+.trend .body{flex:1;min-width:0}
+.trend .tline{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:6px}
+.trend .tname{font-size:17px;font-weight:700}
+.trend .why{font-size:14px;color:var(--txt-secondary)}
+.trend .src{font-size:12.5px;color:var(--txt-caption);margin-top:6px}
+
+/* Tag chip */
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:10px}
+.tagchip{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:500;
+  background:var(--bg-tertiary);color:var(--txt-secondary);padding:5px 11px;border-radius:999px}
+.tagchip.brand{background:var(--bg-blue-primary);color:var(--txt-blue-primary)}
+[data-theme="dark"] .tagchip.brand{color:var(--blue-200)}
+
+/* Product grid */
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.prod{display:flex;flex-direction:column;background:var(--bg-primary);
+  border:1px solid var(--border-tertiary);border-radius:16px;overflow:hidden;box-shadow:var(--shadow-sm)}
+.prod .thumb{aspect-ratio:4/3;background:var(--bg-tertiary);display:flex;align-items:center;justify-content:center;
+  color:var(--txt-disabled);font-size:13px;overflow:hidden}
+.prod .thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.prod .pbody{padding:16px 16px 18px;display:flex;flex-direction:column;flex:1}
+.prod .phead{display:flex;align-items:center;gap:8px;justify-content:space-between;margin-bottom:4px}
+.prod .rankno{font-size:12px;font-weight:800;color:var(--txt-blue-primary)}
+.prod .pname{font-size:16px;font-weight:700;line-height:1.4}
+.prod .price{font-size:14px;font-weight:700;color:var(--txt-secondary);margin-top:2px}
+.prod .preason{font-size:13.5px;color:var(--txt-secondary);margin-top:10px;flex:1}
+.prod .pmeta{display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin-top:12px}
+.prod .plink{margin-top:14px}
+
+/* Button */
+.btn{font-family:inherit;font-weight:600;border:1px solid transparent;border-radius:10px;cursor:pointer;
+  display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:0 14px;height:38px;font-size:13.5px;
+  text-decoration:none;color:var(--txt-primary);transition:.15s}
+.btn-outline{background:transparent;border-color:var(--border-secondary);color:var(--txt-secondary)}
+.btn-outline:hover{background:var(--bg-tertiary);color:var(--txt-primary)}
+.btn-cta{width:100%}
+
+/* Action / hashtag block */
+.actions .listrow{display:flex;gap:14px;padding:16px 18px;background:var(--bg-primary);
+  border:1px solid var(--border-tertiary)}
+.actions .listrow:first-child{border-radius:14px 14px 0 0}
+.actions .listrow:last-child{border-radius:0 0 14px 14px}
+.actions .listrow + .listrow{border-top:none}
+.actions .lead{width:38px;height:38px;border-radius:10px;flex:0 0 auto;display:flex;align-items:center;justify-content:center;
+  background:color-mix(in srgb,var(--blue-500) 14%,var(--bg-primary));color:var(--blue-500);font-weight:800;font-size:13px}
+[data-theme="dark"] .actions .lead{color:var(--blue-200)}
+.actions .ab{flex:1;min-width:0}
+.actions .at{font-size:15px;font-weight:700;margin-bottom:3px}
+.actions .as{font-size:13.5px;color:var(--txt-secondary)}
+
+/* Alert (데이터 한계) */
+.alert{display:flex;gap:10px;padding:14px 16px;border-radius:12px;font-size:13.5px;align-items:flex-start;margin-top:16px}
+.alert.info{background:var(--bg-blue-primary);color:var(--txt-blue-primary)}
+[data-theme="dark"] .alert.info{color:var(--blue-200)}
+.alert .ico{flex:0 0 auto;margin-top:1px}
+
+.footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--border-tertiary);
+  font-size:12.5px;color:var(--txt-caption);text-align:center}
+
+@media (max-width:599px){
+  .grid{grid-template-columns:1fr}
+  .hero h1{font-size:23px}
+  .wrap{padding:14px 14px 48px}
+}
+::-webkit-scrollbar{width:14px;height:14px}
+::-webkit-scrollbar-thumb{background-color:rgba(0,0,0,.22);border-radius:999px;border:4px solid transparent;background-clip:padding-box;min-height:44px}
+::-webkit-scrollbar-thumb:hover{background-color:rgba(0,0,0,.38)}
+[data-theme="dark"] ::-webkit-scrollbar-thumb{background-color:rgba(255,255,255,.2)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- GNB (고정 — 수정 금지) -->
+  <div class="gnb">
+    <div class="lockup">
+      <div class="logo-mark">wbL</div>
+      <div>
+        <div class="logo-title">Trend Scout</div>
+        <div class="logo-sub">wbL 주얼리 · 최근 3개월 트렌드 분석</div>
+      </div>
+    </div>
+    <button class="theme-btn" onclick="(function(h){h.dataset.theme=h.dataset.theme==='dark'?'light':'dark'})(document.documentElement)" aria-label="테마 바꾸기">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+    </button>
+  </div>
+
+  <!-- @SLOT:HERO — 한 줄 요약 -->
+  <div class="hero">
+    <span class="eyebrow">▲ 이번 분석 핵심 · 8/24 대비 달라진 것 중심</span>
+    <h1><b>참 팔찌</b>가 돌아왔어요 — <b>자연석 젬</b>·<b>빈티지 목걸이</b>가 가을 새 흐름이에요.</h1>
+    <p class="lead">8/24 리포트의 청키 팔찌·바로크 진주·실버는 그대로 강해요. 이번 주 새로 잡힌 건 세 가지예요 — ①아이돌 스타일링과 함께 <b>참 팔찌·스택 뱅글</b>이 재부상했고, ②지난달 "공백"이었던 자연석 젬이 <b>타이거아이·카넬리안·문스톤</b>으로 구체화됐고, ③<b>90년대 레진 참 목걸이</b>가 레이어드 흐름을 더 강하게 끌어올리고 있어요. 바다·조개 무드는 이제 완전히 식었어요.</p>
+    <p class="stamp">생성일 2026-08-28 · 트렌드 기간 2026-06 ~ 08 · 신호: 웹 검색(하퍼스 바자·W Korea·보그 코리아·Cosmopolitan·careet.net) + 커머스 우회 추정</p>
+  </div>
+  <!-- /@SLOT:HERO -->
+
+  <!-- @SLOT:TRENDS — 최근 3개월 트렌드 TOP -->
+  <div class="section">
+    <div class="section-head"><h2>최근 3개월 트렌드</h2><span class="hint">▲ 상승 · = 유지 · ▼ 하락 — 8/24 대비 변화 표시</span></div>
+
+    <div class="trend">
+      <div class="rank">1</div>
+      <div class="body">
+        <div class="tline">
+          <span class="tname">참 팔찌 · 스택 뱅글 재부상</span>
+          <span class="badge pos">▲ 신규 상승</span>
+        </div>
+        <p class="why">8/24엔 없었던 새 신호예요. 하퍼스 바자가 "추억의 판도라 팔찌가 돌아왔다"(2026-08월)를 기사화했고, W Korea도 "90년대 이 팔찌, 다시 돌아올 줄이야"를 7월에 실었어요. 원하는 참을 골라 조합하는 <b>커스텀 참 팔찌</b>와 두툼한 뱅글을 겹쳐 차는 <b>스택 뱅글</b>이 핵심이에요. 아이돌 스타일링에서 자주 보이는 것도 MZ 흡수 신호예요. 기존 청키 커프 트렌드와 방향은 같지만, "기억 소환 + 커스터마이징"이라는 새 각도가 더해졌어요.</p>
+        <div class="chips">
+          <span class="tagchip">참 팔찌</span>
+          <span class="tagchip">스택 뱅글</span>
+          <span class="tagchip">커스텀 참</span>
+          <span class="tagchip">아이돌 착용</span>
+          <span class="tagchip brand">wbL 마중 오행팔찌 · 오르빗 듀얼팔찌 연결 가능</span>
+        </div>
+        <p class="src">근거: 하퍼스 바자 코리아 '판도라 팔찌가 돌아왔다' 2026-08 · W Korea '90년대 이 팔찌, 다시 돌아올 줄이야' 2026-07 · 판도라 코리아 2026 신상 라인 (검색 우회 간접 추정)</p>
+      </div>
+    </div>
+
+    <div class="trend">
+      <div class="rank">2</div>
+      <div class="body">
+        <div class="tline">
+          <span class="tname">자연석 젬스톤 — 타이거아이·카넬리안·문스톤</span>
+          <span class="badge pos">▲ 상승 (중→상)</span>
+        </div>
+        <p class="why">8/24 리포트에서 "컬러 젬스톤 라인이 좁다"고 공백으로 짚었던 부분이, 이번엔 <b>구체적인 소재</b>로 드러났어요. 흙빛 가을 컬러 자연석 — 타이거아이(황갈색), 카넬리안(주황·테라코타), 문스톤(반투명 백색), 전복 껍질 — 수요가 늘고 있어요. 샌드·샴페인·옐로 톤의 '데저트 다이아몬드'라는 표현도 패션 기사에 등장해요. 기존 사파이어 계열에서 <b>흙빛·자연 원석</b>으로 방향이 넓어졌어요.</p>
+        <div class="chips">
+          <span class="tagchip">타이거아이</span>
+          <span class="tagchip">카넬리안</span>
+          <span class="tagchip">문스톤</span>
+          <span class="tagchip">전복 껍질</span>
+          <span class="tagchip">데저트 컬러</span>
+          <span class="tagchip brand">공백 — wbL 신상 후보</span>
+        </div>
+        <p class="src">근거: Elle Korea '2026 가을/겨울 트렌드' · 웹 검색 'desert diamond 주얼리 2026' · careet.net 2026 트렌드 캘린더 (검색 우회 간접 추정)</p>
+      </div>
+    </div>
+
+    <div class="trend">
+      <div class="rank">3</div>
+      <div class="body">
+        <div class="tline">
+          <span class="tname">90년대 빈티지 참 목걸이 + 레이어드 강화</span>
+          <span class="badge pos">▲ 상승 (중→상)</span>
+        </div>
+        <p class="why">기존 레이어드 흐름에 90년대 향수 소재가 합쳐졌어요. 레진 참·가죽 끈·오버사이즈 펜던트가 달린 긴 체인을 1~2가닥 겹치는 방식이에요. 여러 겹을 얇게 쌓던 방식은 지고, <b>굵기·소재·길이 대비</b>가 더 뚜렷해졌어요. 목걸이 한 가닥이라도 "이게 뭔지"가 보이는 소재감이 중요해요. 코스모폴리탄 · 보그 코리아 기사에서 90년대 레트로 주얼리를 반복 언급해요.</p>
+        <div class="chips">
+          <span class="tagchip">레진 참 목걸이</span>
+          <span class="tagchip">긴 체인</span>
+          <span class="tagchip">빈티지 무드</span>
+          <span class="tagchip">90년대 레트로</span>
+          <span class="tagchip">굵기 대비 레이어드</span>
+          <span class="tagchip brand">wbL 레이어드 기획에 연결 가능</span>
+        </div>
+        <p class="src">근거: Cosmopolitan Korea '2026 액세서리 트렌드 예언' · Vogue Korea '여름에 딱, 취향 드러내는 목걸이' 2026-04 · 웹 검색 결과 '90년대 향수 주얼리 2026' (검색 우회 간접 추정)</p>
+      </div>
+    </div>
+
+    <div class="trend">
+      <div class="rank">4</div>
+      <div class="body">
+        <div class="tline">
+          <span class="tname">청키 팔찌 · 바로크 진주 · 실버 · 스테이트먼트 귀걸이</span>
+          <span class="badge gray">= 유지 (모두 상)</span>
+        </div>
+        <p class="why">8/24에 상세히 다뤘고 이번에도 변화 없이 강해요. 청키 커프·바이드 뱅글, 바로크 진주(큼직한 자연산 진주), 골드+실버 믹스드 메탈, 조형적 스테이트먼트 귀걸이 — 네 가지 모두 유지예요. 더 자세한 분석은 2026-08-24 리포트를 참고해 주세요.</p>
+        <div class="chips">
+          <span class="tagchip">청키 커프</span><span class="tagchip">바로크 진주</span>
+          <span class="tagchip">믹스드 메탈</span><span class="tagchip">스테이트먼트 귀걸이</span>
+        </div>
+        <p class="src">근거: 2026-08-24 wbL Trend Scout 리포트 참조</p>
+      </div>
+    </div>
+
+    <div class="trend">
+      <div class="rank" style="background:var(--status-negative)">↓</div>
+      <div class="body">
+        <div class="tline">
+          <span class="tname">바다 · 조개 · 해양 모티프</span>
+          <span class="badge neg">▼ 쇠퇴 (하→없음)</span>
+        </div>
+        <p class="why">여름 시즌이 공식적으로 마무리되면서 조개·물결·해양 무드는 이제 검색 신호에서 거의 사라졌어요. 6월(강)→8/24(하)→지금(없음)으로 예상보다 빨리 식었어요. 가을 시즌 콘텐츠에서는 이 모티프를 지워주세요.</p>
+        <div class="chips">
+          <span class="tagchip">조개 모티프 ↓</span><span class="tagchip">물결 ↓</span><span class="tagchip">해양 무드 ↓</span>
+        </div>
+        <p class="src">근거: 검색 결과에서 해양 주얼리 신호 거의 없음 · 8/24 대비 신호 급감 확인</p>
+      </div>
+    </div>
+
+  </div>
+  <!-- /@SLOT:TRENDS -->
+
+  <!-- @SLOT:PRODUCTS — 추천 제품(랭크순) -->
+  <div class="section">
+    <div class="section-head"><h2>지금 밀 제품</h2><span class="hint">트렌드 적합도순 · 새 흐름(참 팔찌·자연석 젬) 반영</span></div>
+    <div class="grid">
+
+      <div class="prod">
+        <div class="thumb"><img src="https://wblbeauty.com/web/product/big/202607/eed5ed05b86a17b924294e04758483aa.jpg" alt="925실버 마중 채움 오행팔찌"></div>
+        <div class="pbody">
+          <div class="phead"><span class="rankno">PICK 1</span><span class="badge pos">적합도 높음</span></div>
+          <div class="pname">925실버 마중 채움 오행팔찌</div>
+          <div class="price">98,900원</div>
+          <p class="preason">참 팔찌 재부상 흐름에서 가장 앞서요. 컬러 스톤이 여러 개 달려 있어 자연석 젬 트렌드와도 맞닿아요. "커스텀 참" 무드로 스타일링할 수 있는 카드예요.</p>
+          <div class="pmeta"><span class="badge blue">참 팔찌 · 자연석</span><span class="badge gray">확신도 높음</span></div>
+          <a class="btn btn-outline btn-cta plink" href="https://wblbeauty.com/product/detail.html?product_no=7686" target="_blank" rel="noopener">상품 보기</a>
+        </div>
+      </div>
+
+      <div class="prod">
+        <div class="thumb"><img src="https://wblbeauty.com/web/product/big/202607/f5a77f0ecfeee927ffdf188560be4f1c.jpg" alt="925실버 오르빗 볼 체인 듀얼 팔찌"></div>
+        <div class="pbody">
+          <div class="phead"><span class="rankno">PICK 2</span><span class="badge pos">적합도 높음</span></div>
+          <div class="pname">925실버 오르빗 볼 체인 듀얼 팔찌</div>
+          <div class="price">53,900원</div>
+          <p class="preason">두 줄 체인이 스택 뱅글 느낌을 줘요. 참 팔찌 재부상 흐름과 "겹쳐 차기" 흐름 모두 받아요. PICK 1과 함께 한 손목에 겹쳐 찍는 콘텐츠가 강해요.</p>
+          <div class="pmeta"><span class="badge blue">스택 뱅글 · 실버</span><span class="badge gray">확신도 높음</span></div>
+          <a class="btn btn-outline btn-cta plink" href="https://wblbeauty.com/product/detail.html?product_no=7689" target="_blank" rel="noopener">상품 보기</a>
+        </div>
+      </div>
+
+      <div class="prod">
+        <div class="thumb"><img src="https://wblbeauty.com/web/product/big/202508/a0ce2384a5aba5b5a3727e9cdbebda8c.jpg" alt="925실버 임페리얼 사파이어 진주 목걸이"></div>
+        <div class="pbody">
+          <div class="phead"><span class="rankno">PICK 3</span><span class="badge pos">적합도 높음</span></div>
+          <div class="pname">925실버 임페리얼 사파이어 진주 목걸이</div>
+          <div class="price">87,900원</div>
+          <p class="preason">바로크 진주·실버 흐름 유지. 이번엔 90년대 빈티지 참 목걸이와 레이어드하는 각도로 리스타일링해 보세요. 긴 체인 하나 더 걸면 딱이에요.</p>
+          <div class="pmeta"><span class="badge blue">바로크 진주 · 레이어드</span><span class="badge gray">확신도 높음</span></div>
+          <a class="btn btn-outline btn-cta plink" href="https://wblbeauty.com/product/detail.html?product_no=7250" target="_blank" rel="noopener">상품 보기</a>
+        </div>
+      </div>
+
+      <div class="prod">
+        <div class="thumb"><img src="https://wblbeauty.com/web/product/big/202508/c0ce7e854a0ce6769463aa03bbfb3faa.jpg" alt="925실버 임페리얼 사파이어 진주 귀걸이"></div>
+        <div class="pbody">
+          <div class="phead"><span class="rankno">PICK 4</span><span class="badge pos">적합도 높음</span></div>
+          <div class="pname">925실버 임페리얼 사파이어 진주 귀걸이</div>
+          <div class="price">89,900원</div>
+          <p class="preason">스테이트먼트 귀걸이 흐름 유지. PICK 3 목걸이와 세트 컷이 가장 강해요. 진주 + 사파이어 컬러가 자연석 젬 방향과도 살짝 맞닿아요.</p>
+          <div class="pmeta"><span class="badge blue">스테이트먼트 · 진주</span><span class="badge gray">확신도 높음</span></div>
+          <a class="btn btn-outline btn-cta plink" href="https://wblbeauty.com/product/detail.html?product_no=7249" target="_blank" rel="noopener">상품 보기</a>
+        </div>
+      </div>
+
+      <div class="prod">
+        <div class="thumb"><img src="https://wblbeauty.com/web/product/big/202604/3c8b0e109660415c853009ca0157faef.webp" alt="14k 르그랑 볼드 커브 귀걸이"></div>
+        <div class="pbody">
+          <div class="phead"><span class="rankno">PICK 5</span><span class="badge pos">적합도 높음</span></div>
+          <div class="pname">14k 르그랑 볼드 커브 귀걸이</div>
+          <div class="price">69,900원</div>
+          <p class="preason">스테이트먼트 귀걸이 유지. 초가을 니트·트렌치와 함께 찍는 각도로 리스타일링하면 여름 이미지에서 탈출할 수 있어요. 혜리 착용 자산 그대로예요.</p>
+          <div class="pmeta"><span class="badge blue">스테이트먼트 · 골드</span><span class="badge gray">확신도 높음</span></div>
+          <a class="btn btn-outline btn-cta plink" href="https://wblbeauty.com/product/detail.html?product_no=6993" target="_blank" rel="noopener">상품 보기</a>
+        </div>
+      </div>
+
+      <div class="prod">
+        <div class="thumb"><img src="https://wblbeauty.com/web/product/big/202607/5cb8a6c6b085f38a679fbfca67d6f8bb.jpg" alt="925실버 스텔라 심플 드롭 귀걸이"></div>
+        <div class="pbody">
+          <div class="phead"><span class="rankno">PICK 6</span><span class="badge blue">적합도 중간</span></div>
+          <div class="pname">925실버 스텔라 심플 드롭 귀걸이</div>
+          <div class="price">51,900원</div>
+          <p class="preason">롱 드롭 실루엣이 레이어드 스타일링에 자연스럽게 어울려요. 실버 재부상 흐름도 받고, 참 팔찌 세트 컷에서 귀걸이로 포인트 주기 좋아요.</p>
+          <div class="pmeta"><span class="badge blue">롱 드롭 · 실버</span><span class="badge gray">확신도 중간</span></div>
+          <a class="btn btn-outline btn-cta plink" href="https://wblbeauty.com/product/detail.html?product_no=7690" target="_blank" rel="noopener">상품 보기</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <!-- /@SLOT:PRODUCTS -->
+
+  <!-- @SLOT:ACTIONS — 실행 제안 + 추천 해시태그 세트 -->
+  <div class="section actions">
+    <div class="section-head"><h2>실행 제안</h2></div>
+    <div>
+      <div class="listrow">
+        <div class="lead">1</div>
+        <div class="ab"><div class="at">참 팔찌 재부상 — 손목 스택 콘텐츠 지금이 타이밍</div>
+          <div class="as">마중 오행팔찌 + 오르빗 듀얼 팔찌를 한 손목에 겹쳐 찍어요. 카피 키워드: "추억 소환", "내 손목엔 이야기가 있어요". 아이돌 스타일링 레퍼런스와 함께 릴스로 올리면 흡입력이 좋아요.</div></div>
+      </div>
+      <div class="listrow">
+        <div class="lead">2</div>
+        <div class="ab"><div class="at">자연석 젬 — 가을 컬러 콘텐츠로 브리징</div>
+          <div class="as">마중 오행팔찌의 컬러 스톤을 "타이거아이 같은 흙빛 컬러"로 소개해요. 자연석 명칭을 쓰면 검색 유입이 늘어요. 신상 후보로 가넷·시트린 계열 작업이 가능하면 10월 기획전 연결을 노려요.</div></div>
+      </div>
+      <div class="listrow">
+        <div class="lead">3</div>
+        <div class="ab"><div class="at">임페리얼 진주 세트를 90년대 레이어드로 리스타일링</div>
+          <div class="as">사파이어 진주 목걸이에 긴 체인 하나 더 걸어서 "빈티지 + 현재" 대비 레이어드 컷으로. 카피 키워드: "한 겹 더", "묵직한 레이어드". 니트 소매와 함께 찍으면 초가을 무드 완성이에요.</div></div>
+      </div>
+      <div class="listrow">
+        <div class="lead">4</div>
+        <div class="ab"><div class="at">르그랑 볼드 커브 — 가을 룩으로 이미지 자산 교체</div>
+          <div class="as">여름 데일리 이미지는 내리고, 트렌치·캐시미어·니트 배경으로 새로 찍어요. "여름엔 크게, 가을엔 더 크게" 카피로 이어가면 6월 인지도 자산이 낭비 없이 연결돼요.</div></div>
+      </div>
+    </div>
+
+    <div class="section-head" style="margin-top:24px"><h2 style="font-size:18px">추천 해시태그 세트</h2>
+      <span class="hint">트렌드에서 도출 · 인스타 실시간 카운트 아님</span></div>
+    <div class="chips">
+      <span class="tagchip brand">#참팔찌</span><span class="tagchip brand">#스택뱅글</span><span class="tagchip brand">#팔찌추천</span><span class="tagchip brand">#커스텀팔찌</span>
+      <span class="tagchip brand">#자연석주얼리</span><span class="tagchip brand">#타이거아이</span><span class="tagchip brand">#가을주얼리</span><span class="tagchip brand">#가을액세서리</span>
+      <span class="tagchip brand">#레이어드목걸이</span><span class="tagchip brand">#빈티지목걸이</span><span class="tagchip brand">#레트로주얼리</span>
+      <span class="tagchip brand">#바로크진주</span><span class="tagchip brand">#진주목걸이</span><span class="tagchip brand">#실버주얼리</span><span class="tagchip brand">#믹스드메탈</span>
+      <span class="tagchip brand">#스테이트먼트귀걸이</span><span class="tagchip brand">#니트위주얼리</span><span class="tagchip brand">#초가을코디</span><span class="tagchip brand">#wbL</span>
+    </div>
+  </div>
+  <!-- /@SLOT:ACTIONS -->
+
+  <!-- @SLOT:GAP — 공백/기회 -->
+  <div class="section">
+    <div class="section-head"><h2>공백 · 기회</h2><span class="hint">트렌드는 뜨는데 wbL 라인이 비어요</span></div>
+    <div class="trend">
+      <div class="rank" style="background:var(--gray-500)">!</div>
+      <div class="body">
+        <div class="tline"><span class="tname">자연석 단품 라인 없음 — 가을 수요 놓쳐요</span><span class="badge warn">트렌드 강도 상</span></div>
+        <p class="why">타이거아이·카넬리안·문스톤·적색 가넷 같은 흙빛 자연석 단품이 가을 주얼리 트렌드 핵심인데, wbL 카탈로그엔 사파이어·모이사나이트 외에 이 계열이 없어요. 가넷·시트린·스모키쿼츠 반지나 귀걸이 한 종만 추가해도 가을 시즌 검색 유입이 붙어요.</p>
+      </div>
+    </div>
+    <div class="trend" style="margin-top:10px">
+      <div class="rank" style="background:var(--gray-500)">!</div>
+      <div class="body">
+        <div class="tline"><span class="tname">커스텀 참 팔찌 라인 없음</span><span class="badge warn">트렌드 강도 상</span></div>
+        <p class="why">판도라식 참 팔찌 재부상 흐름에서 wbL만 받을 수 있는 각도는 "한국 브랜드 감성 참"이에요. 세이지·자연 모티프 참 2~3종만 있어도 이 흐름을 타기 좋아요. 현재 팔찌 라인(오르빗·마중)은 청키 커프에 강하지만 "참 쌓기"는 커버 못해요.</p>
+      </div>
+    </div>
+  </div>
+  <!-- /@SLOT:GAP -->
+
+  <!-- @SLOT:DATANOTE — 데이터 한계 메모 -->
+  <div class="section">
+    <div class="alert info">
+      <svg class="ico" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+      <div>
+        <b>카탈로그:</b> wblbeauty.com 직접 접근이 이번 실행에서 차단됐어요. 제품 정보는 <b>2026-08-24 리포트에서 확인된 6종</b>(product_no 기준)을 그대로 사용했어요. 신상이 더 있을 수 있으니 실제 카탈로그를 직접 확인해 주세요.<br><br>
+        <b>트렌드:</b> 웹 검색 결과를 기반으로 했어요 — 하퍼스 바자 코리아·W Korea·Vogue Korea·Cosmopolitan Korea·Elle Korea 기사 제목/요약(WebSearch 결과). careet.net·매거진 본문 직접 접근도 차단돼 <b>검색 결과 요약으로 간접 추정</b>했어요. 무신사·지그재그·29CM 커머스 인기 신호도 JS앱 특성으로 직접 못 읽어 <b>검색 우회 간접 추정</b>이에요.<br><br>
+        <b>8/24 대비 가장 큰 변화:</b> ①참 팔찌 재부상(신규 신호), ②자연석 젬 구체화(타이거아이·카넬리안·문스톤), ③레이어드 90년대 빈티지 방향 합류, ④바다·조개 무드 완전 소멸.
+      </div>
+    </div>
+  </div>
+  <!-- /@SLOT:DATANOTE -->
+
+  <div class="footer">wbL Trend Scout · W-ISLAND 디자인 시스템 적용 · 2026-08-28</div>
+
+</div>
+</body>
+</html>
