@@ -1,0 +1,86 @@
+{
+  "app": "wbL Trend Scout",
+  "summary": "wbL 주얼리 최근 3개월 트렌드 분석 + 지금 밀 제품 추천. 사내 AI 검색(자비스)이 읽는 기계용 요약본.",
+  "report_date": "2026-09-01",
+  "trend_period": "2026-06 ~ 2026-09",
+  "source_note": "웹 검색(Who What Wear·Harper's Bazaar·King Jewelers·artizanjoyeria.com·Natural Diamonds·Vogue Korea·Cosmopolitan Korea·careet.net) + 커머스 우회 간접 추정. wblbeauty.com 카탈로그 직접 접근은 차단되어 2026-08-28 리포트의 6종 제품(product_no 6993·7686·7249·7250·7689·7690)을 사용.",
+  "headline": "청키 초커와 링 스택이 새로 떴어요 — '하나 크게'가 이번 달 법칙. 참 팔찌·자연석 젬·스테이트먼트 귀걸이·바로크 진주는 유지, 얇은 레이어드 목걸이는 하락.",
+  "biggest_changes_vs_prev": [
+    "청키 초커 목걸이 신규 강 신호 (Chanel·Saint Laurent F/W 런웨이)",
+    "링 스택·조각적 칵테일 링 신규 상승",
+    "레이어드 목걸이(얇은 여러 겹) 상→중 하락 — '한 줄 굵게'로 이동",
+    "자연석 젬·참 팔찌·스테이트먼트 귀걸이·바로크 진주는 유지"
+  ],
+  "trends": [
+    {
+      "rank": 1,
+      "name": "청키 초커 목걸이 — '목에 하나 크게'",
+      "direction": "up_new",
+      "direction_label": "▲ 신규 상승",
+      "why": "8/28엔 없던 새 신호. Chanel·Saint Laurent F/W 2026 런웨이에서 조각적 칼라 네크리스·볼드 초커가 중심 아이템으로 등장. 얇은 체인 여러 겹 '레이어드'에서 '목걸이 하나를 굵고 크게'로 이동. 볼 체인 초커·메탈 스컬프처 칼라·비즈 초커가 소셜에서 빠르게 확산.",
+      "tags": ["볼드 초커", "볼 체인", "조각적 칼라", "메탈 스컬프처"],
+      "wbl_link": "공백 — wbL 초커 단품 없음. 임페리얼 진주 목걸이를 초커 연출로 대응 가능",
+      "evidence": "Who What Wear 'RIP Quiet Luxury: 3 Big Jewelry Trends for Fall 2026' · King Jewelers 'Top 10 Fall Jewelry Trends 2026' · Chanel·Saint Laurent F/W 2026 런웨이(간접 추정) · Cosmopolitan Korea 2026 액세서리 트렌드 예언"
+    },
+    {
+      "rank": 2,
+      "name": "링 스택 · 조각적 칵테일 링",
+      "direction": "up_new",
+      "direction_label": "▲ 신규 상승",
+      "why": "8/28에 없던 새 신호. 국제 런웨이에서 한 손에 굵직한 반지를 2~3개 겹쳐 차는 '링 스택'이 강하게 등장. 믹스드 메탈(골드+실버 혼용)·오버사이즈 밴드·스컬프처럴 칵테일 링이 핵심. wbL 카탈로그에 반지 라인이 없어 공백.",
+      "tags": ["링 스택", "칵테일 링", "믹스드 메탈 반지", "오버사이즈 밴드"],
+      "wbl_link": "공백 — wbL 반지 라인 없음. 오르빗 듀얼 팔찌가 손목 스택으로 근접 대응",
+      "evidence": "Who What Wear 'These Are the 6 Jewelry Trends Set to Define 2026' · artizanjoyeria.com 'The 10 Hottest Fall Jewelry Trends for Sept-Nov 2026' · Natural Diamonds 'Chunky Rings' (간접 추정)"
+    },
+    {
+      "rank": 3,
+      "name": "스테이트먼트 귀걸이 · 참 팔찌 · 자연석 젬",
+      "direction": "hold",
+      "direction_label": "= 유지 (상)",
+      "why": "8/28에서 상세히 다룬 흐름이 변화 없이 강세 유지. 조각적·구조적 스테이트먼트 귀걸이, 참 팔찌 재부상, 타이거아이·카넬리안·문스톤 흙빛 자연석 수요. 이번 달엔 가을 니트·트렌치와 연출하는 각도로 콘텐츠 전환 타이밍.",
+      "tags": ["스테이트먼트 귀걸이", "참 팔찌", "타이거아이", "카넬리안", "믹스드 메탈"],
+      "wbl_link": "마중 오행팔찌·르그랑 볼드 커브 귀걸이 연결",
+      "evidence": "2026-08-28 wbL Trend Scout 리포트 · 이번 달 검색 신호에서도 동일 강도 확인"
+    },
+    {
+      "rank": 4,
+      "name": "바로크 진주 · 실버 믹스메탈",
+      "direction": "hold",
+      "direction_label": "= 유지 (상)",
+      "why": "큼직한 바로크 진주 + 골드·실버 믹스드 메탈 조합 지속 강세. 청키 초커 흐름과 맞물려 '목에 굵은 진주 목걸이 하나' 각도가 강화. 임페리얼 사파이어 진주 목걸이를 한 줄로 짧게 연출하면 초커 무드 흡수.",
+      "tags": ["바로크 진주", "큼직한 진주", "믹스드 메탈"],
+      "wbl_link": "임페리얼 사파이어 진주 목걸이 초커 연출 가능",
+      "evidence": "2026-08-28 wbL Trend Scout 리포트 · Fall 2026 jewelry trend 종합 검색 신호"
+    },
+    {
+      "rank": 5,
+      "name": "레이어드 목걸이 (얇은 여러 겹)",
+      "direction": "down",
+      "direction_label": "▼ 하락 (상→중)",
+      "why": "여름 내내 강했던 '얇은 체인 2~3겹 레이어드'가 가을 들어 약화. 청키 초커가 자리를 대체하며 '많이 작게 vs 하나 크게' 구도에서 방향 전환. 굵기·소재 대비 없는 얇은 레이어드는 약세, '초커 1줄 + 살짝 긴 목걸이 1줄' 2층 대비만 잔존.",
+      "tags": ["얇은 체인 레이어드", "미니멀 레이어드"],
+      "wbl_link": "얇은 레이어드 콘텐츠 비중 축소 권장",
+      "evidence": "Fall 2026 런웨이 분석 — 여러 겹 얇은 목걸이보다 단독 볼드 피스 중심으로 이동(간접 추정)"
+    }
+  ],
+  "product_picks": [
+    { "rank": 1, "name": "14k 르그랑 볼드 커브 귀걸이", "price": "69,900원", "product_no": 6993, "url": "https://wblbeauty.com/product/detail.html?product_no=6993", "fit": "높음", "reason": "'하나 크게' 흐름의 귀걸이 버전. 초커 없는 wbL에서 가장 강한 볼드 원 피스. 초가을 니트·트렌치와 촬영해 여름 이미지 전환. 스테이트먼트 귀걸이 강세 + 골드 단품 집중 트렌드 수용.", "confidence": "높음" },
+    { "rank": 2, "name": "925실버 마중 채움 오행팔찌", "price": "98,900원", "product_no": 7686, "url": "https://wblbeauty.com/product/detail.html?product_no=7686", "fit": "높음", "reason": "참 팔찌 재부상 + 자연석 젬 흐름에서 가장 앞섬. 흙빛 컬러 스톤으로 '타이거아이 계열' 무드 가을 콘텐츠 연결. '커스텀 참' 스타일링 핵심.", "confidence": "높음" },
+    { "rank": 3, "name": "925실버 임페리얼 사파이어 진주 귀걸이", "price": "89,900원", "product_no": 7249, "url": "https://wblbeauty.com/product/detail.html?product_no=7249", "fit": "높음", "reason": "바로크 진주·스테이트먼트 귀걸이 강세 유지. PICK 4 목걸이와 세트 컷 유지하되 '초커 + 진주 귀걸이' 새 각도. '볼드 한 조합' 무드에 부합.", "confidence": "높음" },
+    { "rank": 4, "name": "925실버 임페리얼 사파이어 진주 목걸이", "price": "87,900원", "product_no": 7250, "url": "https://wblbeauty.com/product/detail.html?product_no=7250", "fit": "높음", "reason": "청키 초커 트렌드에 wbL이 대응할 가장 가까운 카드. 짧게 한 줄로 착용해 '굵직한 진주 초커' 스타일링. 레이어드 각도는 내리고 한 줄 집중 연출이 포인트.", "confidence": "중간" },
+    { "rank": 5, "name": "925실버 오르빗 볼체인 듀얼 팔찌", "price": "53,900원", "product_no": 7689, "url": "https://wblbeauty.com/product/detail.html?product_no=7689", "fit": "높음", "reason": "링 스택 흐름을 손목에서 받는 가장 가까운 카드. 볼 체인 두 줄이 '스택' 느낌. PICK 2 오행팔찌와 한 손목 겹쳐 '스택 손목' 콘텐츠 완성.", "confidence": "높음" },
+    { "rank": 6, "name": "925실버 스텔라 심플 드롭 귀걸이", "price": "51,900원", "product_no": 7690, "url": "https://wblbeauty.com/product/detail.html?product_no=7690", "fit": "중간", "reason": "가을 레이어드에서 귀걸이만 롱 드롭으로 포인트. '초커 한 줄 + 롱 드롭 귀걸이' 조합이 새 연출 각도. 팔찌 세트 콘텐츠 완성 아이템.", "confidence": "중간" }
+  ],
+  "action_suggestions": [
+    "르그랑 볼드 커브 — 가을 '원 피스' 주인공. 니트·트렌치 배경으로 귀걸이 하나만 확 큰 각도. 카피: '이번 가을은 딱 하나, 크게'. 여름 이미지 자산 교체 타이밍.",
+    "임페리얼 진주 목걸이 — 초커 연출로 리스타일링. 짧게 한 줄로 '진주 초커' 컷을 따로 촬영해 새 알고리즘 진입. 카피: '한 줄로도 충분해요'.",
+    "오행팔찌 + 오르빗 듀얼 — 손목 스택 콘텐츠 이어가기. 링 스택 흐름 의식해 손가락 반지 하나 추가 스타일링(반지 없으면 배경 소품).",
+    "자연석 젬 신상 — 타이거아이·카넬리안·가넷 단품 1종이라도 9월 말~10월 출시해 '가을 원석 주얼리' 기획전과 연결. 반지도 링 스택 대응으로 함께 기획하면 두 공백 동시 해소."
+  ],
+  "hashtags": ["#청키초커", "#초커목걸이", "#볼드목걸이", "#하나크게", "#스테이트먼트귀걸이", "#볼드귀걸이", "#가을귀걸이", "#참팔찌", "#스택뱅글", "#손목스택", "#자연석주얼리", "#가을주얼리", "#바로크진주", "#믹스드메탈", "#실버주얼리", "#초가을코디", "#가을액세서리", "#wbL"],
+  "gaps_opportunities": [
+    { "title": "청키 초커 목걸이 — 시즌 No.1 공백", "strength": "상", "detail": "이번 달 가장 강한 새 신호인데 wbL에 초커 단품이 없음. 볼 체인 초커·비즈 초커·메탈 칼라 중 하나라도 10월 전 기획하면 시즌 타이밍 탑승. 임페리얼 진주 목걸이 초커 연출로 버티는 동안 신상 개발 필요." },
+    { "title": "링 스택 — 반지 라인 완전 부재", "strength": "상", "detail": "링 스택이 글로벌 F/W 핵심 트렌드로 상승했는데 wbL 카탈로그에 반지 라인 없음. 스컬프처럴 밴드 1~2종만 추가해도 링 스택 콘텐츠에 즉시 연결. 초커와 함께 9월 신상 우선순위 1·2위." },
+    { "title": "자연석 단품 (유지 중인 공백)", "strength": "상", "detail": "8/28부터 지적된 공백. 타이거아이·카넬리안·가넷 계열 귀걸이·반지 단품이 아직 없음. 10월 가을 기획전 전 1종이라도 추가하면 자연석 젬 검색 유입." }
+  ]
+}
